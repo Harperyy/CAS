@@ -1,0 +1,77 @@
+<!--pages/f_game/cla3/num3/num3.wxml-->
+<image class="background" src="{{purl}}"></image>
+<view class="page" data-weui-theme="{{theme}}" wx:if="{{index==1}}">
+	
+	<view class="page__bd page__bd_spacing">
+		
+		<view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder"></view></view>
+			<view class="weui-flex__item"><view class="placeholder"></view></view>
+		</view>
+		<view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder"></view></view>
+			<view class="weui-flex__item"><view class="placeholder"></view></view>
+		
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder" bindtap="toNext"></view></view>
+			<view class="weui-flex__item"><view class="placeholder" bindtap="toNext"></view></view>
+		
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder" bindtap="toNext"></view></view>
+			<view class="weui-flex__item"><view class="placeholder" bindtap="toNext"></view></view>
+		
+    </view>
+	</view>
+</view>
+<view class="page" data-weui-theme="{{theme}}" wx:if="{{index==2||index==3}}">
+	
+	<view class="page__bd page__bd_spacing">
+		
+		<view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder2"></view></view>
+			<view class="weui-flex__item"><view class="placeholder2"></view></view>
+		</view>
+		<view class="weui-flex">
+			<view class="weui-flex__item" ><view class="placeholder1"bindtap="toNext"></view></view>
+			<view class="weui-flex__item" ><view class="placeholder1"bindtap="toNext"></view></view>
+		
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item" ><view class="placeholder1" bindtap="toNext"></view></view>
+			<view class="weui-flex__item" ><view class="placeholder1" bindtap="toNext"></view></view>
+		
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder1" bindtap="toNext"></view></view>
+			<view class="weui-flex__item"><view class="placeholder1" ></view></view>
+		
+    </view>
+	</view>
+</view>
+<view class="page" data-weui-theme="{{theme}}" wx:if="{{index==4}}">
+	
+	<view class="page__bd page__bd_spacing">
+		
+		<view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder2"></view></view>
+			<view class="weui-flex__item"><view class="placeholder2"></view></view>
+		</view>
+		<view class="weui-flex">
+			<view class="weui-flex__item" ><view class="placeholder1"bindtap="toNext"></view></view>
+			<view class="weui-flex__item" ><view class="placeholder1"bindtap="toNext"></view></view>
+		
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item" ><view class="placeholder1" bindtap="toNext"></view></view>
+			<view class="weui-flex__item" ><view class="placeholder1" bindtap="toNext"></view></view>
+		
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder1" bindtap="toNext"></view></view>
+			<view class="weui-flex__item"><view class="placeholder1" bindtap="toNext"></view></view>
+		
+    </view>
+	</view>
+</view>

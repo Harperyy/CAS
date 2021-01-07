@@ -1,0 +1,16 @@
+<!--pages/f_game/yd1/yd1.wxml-->
+<view class="flex-box">
+  <image class="background" src="cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/dh1.jpg" ></image>
+  <view class="flex-item">
+    
+  </view>
+  <view class="flex-item">
+    <view class="test" bindtap="tocs1">
+      >>> 点击测试
+    </view>
+  </view>
+
+  
+  
+</view>
+

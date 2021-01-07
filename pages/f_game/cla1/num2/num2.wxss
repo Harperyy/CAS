@@ -1,0 +1,57 @@
+/* pages/f_game/cla1/num2/num2.wxss */
+.page-title {
+  padding-top: 200rpx;
+  padding-left: 40rpx;
+  font-size: 32px;
+}
+.background{
+  z-index:-1;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-size: 100% 100%;
+}
+.placeholder{text-align:center;height:800rpx;line-height:800rpx;color:var(--weui-FG-1);margin-top: 10rpx;display: flex;flex-wrap: wrap;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  margin-bottom: 10rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+.placeholder11{text-align:center;height:1000rpx;line-height:1000rpx;color:var(--weui-FG-1);margin-top: 10rpx;display: flex;flex-wrap: wrap;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  margin-bottom: 10rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+.sc-btn{
+  padding-top: 10rpx;
+  /* background-color: brown; */
+  color: aliceblue;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+.placeholder1{margin:5px;padding:0 10px;text-align:center;height:300rpx;line-height:300rpx;color:var(--weui-FG-1);margin-top: 25rpx;}
+.placeholder2{margin:5px;padding:0 10px;text-align:center;height:80rpx;line-height:80rpx;color:var(--weui-FG-1);margin-top: 25rpx;align-items: center;}
+.item{
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  color: rgb(245, 210, 210);
+  background-color: brown;
+}
+.itemactive {
+  background-color: coral;
+}
+.qd{
+  width: 200rpx;
+  height: 100rpx;
+  border-radius: 30rpx;
+  background-color: rgb(214, 131, 247);
+  font-size: 50rpx;
+  color: rgb(13, 6, 82);
+  align-items: center;
+}

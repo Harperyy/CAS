@@ -1,0 +1,15 @@
+<!--pages/f_game/cla3/num2/num2.wxml-->
+<image class="background" src="{{purl}}"></image>
+<view class="js" wx:if="{{as==0&&num<=5}}">
+  <view class="item">
+    <view class="sub_item">{{5-num}}</view>
+  </view>
+</view>
+<view class="block" wx:if="{{as==1}}">
+  <view class="item">
+    <view class="sub_item" bindtap="toNext">是</view>
+  </view>
+  <view class="item">
+    <view class="sub_item" bindtap="toNext">否</view>
+  </view>
+</view>

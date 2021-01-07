@@ -1,0 +1,24 @@
+/* pages/f_game/cla1/num1/gz/gz.wxss */
+.page-title {
+  padding-top: 200rpx;
+  padding-left: 40rpx;
+  font-size: 32px;
+}
+.background{
+  z-index:-1;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-size: 100% 100%;
+}
+.placeholder{margin:5px;padding:0 10px;text-align:center;height:950rpx;line-height:950rpx;color:var(--weui-FG-1);margin-top: 25rpx;}
+.placeholder image{
+  width: 290rpx;
+  height: 290rpx;
+}
+.placeholder2{margin:5px;padding:0 10px;text-align:center;height:60%;line-height:60%;color:var(--weui-FG-1);margin-top: 25rpx;opacity: 50%;}
+.placeholder1{margin:5px;padding:0 10px;text-align:right;height:130rpx;line-height:130rpx;color:rgb(250, 248, 252);margin-top: 25rpx;font-size: 50rpx;font-weight: 100;}
+.placeholder1 image{
+  width: 130rpx;
+  height: 130rpx;
+}

@@ -1,0 +1,81 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/f_game/cla1/num1/num1",
+    "pages/f_game/cla1/num1/gz/gz",
+    "pages/f_game/cla1/num2/gz/gz",
+    "pages/f_game/cla1/num3/gz/gz",
+    "pages/f_game/cla1/num2/num2",
+    "pages/f_game/cla1/num3/num3",
+    "pages/f_game/cla2/num1/num1",
+    "pages/f_game/cla2/num2/num2",
+    "pages/f_game/cla2/num3/num3",
+    "pages/f_game/cla2/mathMatch/mathMatch",
+    "pages/f_game/cla2/test/test",
+    "pages/f_game/cla3/num1/num1",
+    "pages/f_game/cla3/num2/num2",
+    "pages/f_game/cla3/num3/num3",
+    "pages/f_game/cla4/num1/num1",
+    "pages/f_game/cla4/num1/gz/gz",
+    "pages/f_game/cla4/num2/num2",
+    "pages/f_game/cla4/num2/gz/gz",
+    "pages/f_game/cla4/num3/num3",
+    "pages/f_game/cla4/num3/gz/gz",
+    "pages/m_game/cla1/num1/num1",
+    "pages/m_game/cla1/num1/gz/gz",
+    "pages/m_game/cla1/num2/gz/gz",
+    "pages/m_game/cla1/num3/gz/gz",
+    "pages/m_game/cla1/num2/num2",
+    "pages/m_game/cla1/num3/num3",
+    "pages/m_game/cla2/num1/num1",
+    "pages/m_game/cla2/num2/num2",
+    "pages/m_game/cla2/num3/num3",
+    "pages/m_game/cla3/num1/num1",
+    "pages/m_game/cla3/num2/num2",
+    "pages/m_game/cla3/num3/num3",
+    "pages/m_game/cla4/num1/num1",
+    "pages/m_game/cla4/num1/gz/gz",
+    "pages/m_game/cla4/num2/num2",
+    "pages/m_game/cla4/num2/gz/gz",
+    "pages/m_game/cla4/num3/num3",
+    "pages/m_game/cla4/num3/gz/gz",
+    "pages/m_game/yd1/yd1",
+    "pages/f_game/yd1/yd1",
+    "pages/game/gameIndex",
+    "pages/person/person",
+    "pages/home/home",
+    "pages/phb/phb",
+    "pages/record/record",
+    "pages/analyze/analyze"
+    
+
+  ],
+  "window": {
+    "backgroundColor": "#E6E6FA",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#E6E6FA",
+    "navigationBarTitleText": "CAS测评",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "color": "#e6e6e6",
+    "selectedColor": "#000",
+    "list": [
+      {
+        "iconPath": "/images/测试申请.jpg",
+        "selectedIconPath": "/images/测试申请1.jpg",
+        "pagePath": "pages/home/home",
+        "text": "测试"
+      },
+      {
+        "iconPath": "/images/个人信息.jpg",
+        "selectedIconPath": "/images/个人信息1.jpg",
+        "pagePath": "pages/person/person",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

@@ -1,0 +1,103 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.14.1",
+  "projectname": "miniprogram-1",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "scripts": {},
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "appid": "wx34b1706077d61e62",
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/m_game/cla4/num1/num1",
+          "pathName": "pages/m_game/cla4/num1/num1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/m_game/cla4/num2/num2",
+          "pathName": "pages/m_game/cla4/num2/num2",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/f_game/cla4/num1/gz/gz",
+          "pathName": "pages/f_game/cla4/num1/gz/gz",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/m_game/cla4/num3/num3",
+          "pathName": "pages/m_game/cla4/num3/num3",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/m_game/cla4/num2/gz/gz",
+          "pathName": "pages/m_game/cla4/num2/gz/gz",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/m_game/yd1/yd1",
+          "pathName": "pages/m_game/yd1/yd1",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

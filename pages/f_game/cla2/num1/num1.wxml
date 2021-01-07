@@ -1,0 +1,74 @@
+<!--pages/f_game/cla2/num1/num1.wxml-->
+<!--pages/f_game/cla1/num2/num2.wxml-->
+<image class="background" src="{{purl}}"></image>
+<view class="page" data-weui-theme="{{theme}}" wx:if="{{index==1||index==2||index==3}}">
+	
+	<view class="page__bd page__bd_spacing" >
+		<view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder1">
+        <!-- <view class="listen" bindtap="test"></view> -->
+        
+        
+      </view></view>
+			
+    </view>
+		<view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder">
+        <!-- <view class="listen" bindtap="test"></view> -->
+        <view class="sc-btn" style="width:120rpx;height:70rpx;text-align: center;" wx:for="{{group}}" wx:item="item" wx:key="key">
+          <button  class="item{{checkedItem[index]==1?'active':''}}" style="width:120rpx;height:70rpx;text-align: center;" bindtap='switch' data-classify="{{index}}" >{{item}}</button>
+        </view>
+        
+      </view></view>
+			
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder2">
+        <!-- <view class="listen" bindtap="test"></view> -->
+        <view class="qd" bindtap="toNext">确定</view>
+        
+        
+      </view></view>
+			
+    </view>
+    
+    
+	</view>
+</view>
+<view class="page" data-weui-theme="{{theme}}" wx:if="{{index==4||index==5}}">
+	
+	<view class="page__bd page__bd_spacing" >
+		<view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder1">
+        <!-- <view class="listen" bindtap="test"></view> -->
+        
+        
+      </view></view>
+			
+    </view>
+		<view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder">
+        <!-- <view class="listen" bindtap="test"></view> -->
+        <view class="sc-btn" style="width:120rpx;height:70rpx;text-align: center;" wx:for="{{group}}" wx:item="item" wx:key="key">
+          <button  class="item{{checkedItem[index]==1?'active':''}}" style="width:130rpx;height:70rpx;text-align: center;" bindtap='switch' data-classify="{{index}}" >{{item}}</button>
+        </view>
+        
+      </view></view>
+			
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder2">
+        <!-- <view class="listen" bindtap="test"></view> -->
+        <view class="qd" bindtap="toNext">确定</view>
+        
+        
+      </view></view>
+			
+    </view>
+    
+    
+	</view>
+</view>
+
+
+

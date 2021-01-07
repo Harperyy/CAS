@@ -1,0 +1,99 @@
+<!--pages/f_game/cla1/num1/num1.wxml-->
+<image class="background" src="{{purl}}"></image>
+<view class="page" data-weui-theme="{{theme}}" wx:if="{{index==1}}">
+	
+	<view class="page__bd page__bd_spacing">
+		
+		<view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder"></view></view>
+			<view class="weui-flex__item"><view class="placeholder"></view></view>
+		</view>
+		<view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder">
+        <image src="{{spurl[0]}}"bindtap="toNext"></image>
+      </view></view>
+			<view class="weui-flex__item"><view class="placeholder">
+        <image src="{{spurl[1]}}"bindtap="toNext"></image>
+      </view></view>
+		
+    </view>
+   
+    
+	</view>
+</view>
+<view class="page" data-weui-theme="{{theme}}" wx:if="{{index==2||index==3}}">
+	
+	<view class="page__bd page__bd_spacing">
+		
+		<view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder"></view></view>
+			<view class="weui-flex__item"><view class="placeholder"></view></view>
+		</view>
+		<view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder">
+        <image src="{{spurl[0]}}"bindtap="toNext"></image>
+      </view></view>
+			<view class="weui-flex__item"><view class="placeholder">
+        <image src="{{spurl[1]}}"bindtap="toNext"></image>
+      </view></view>
+		
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder">
+        <image src="{{spurl[2]}}"bindtap="toNext"></image>
+      </view></view>
+			<view class="weui-flex__item"><view class="placeholder">
+        <image src="{{spurl[3]}}"bindtap="toNext"></image>
+      </view></view>
+		
+    </view>
+    
+	</view>
+</view>
+<view class="page" data-weui-theme="{{theme}}" wx:if="{{index==4||index==5}}">
+	
+	<view class="page__bd page__bd_spacing">
+		
+		<view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder"></view></view>
+			<view class="weui-flex__item"><view class="placeholder"></view></view>
+		</view>
+		<view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder1">
+        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"></image>
+      </view></view>
+			<view class="weui-flex__item"><view class="placeholder1">
+        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"></image>
+      </view></view>
+		
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder1">
+        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"></image>
+      </view></view>
+			<view class="weui-flex__item"><view class="placeholder1">
+        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"></image>
+      </view></view>
+		
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder1">
+        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"></image>
+      </view></view>
+			<view class="weui-flex__item"><view class="placeholder1">
+        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"></image>
+      </view></view>
+		
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder1">
+        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"></image>
+      </view></view>
+			<view class="weui-flex__item"><view class="placeholder1">
+        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"></image>
+      </view></view>
+		
+    </view>
+    
+	</view>
+</view>

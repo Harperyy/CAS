@@ -1,0 +1,23 @@
+<!--pages/game/gameIndex.wxml-->
+<view class="flex-box">
+  <image class="background" src="cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/bj3.jpg" style="opacity:{{0.5}}"></image>
+  <view class="flex-item">
+    <view class="tex">
+      >>> 欢迎来到“认知世界的冒险之旅”！请注意该次旅途将历时大约20分钟，路途遥远，快挑选一位小伙伴一起踏上冒险征程、协同攻克难关吧。
+    </view>
+  </view>
+  <view class="flex-item">
+    <view class="theme">
+      <image class="kn" bindtap="tokn" src="cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/kn.jpg" style="opacity:{{0.8}}">
+        
+      </image> 
+    </view>
+    <view class="theme">
+      <image class="as" bindtap="toas" src="cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/as.jpg" style="opacity:{{0.8}}">
+        
+      </image> 
+    </view>
+    
+  </view>
+  
+</view>

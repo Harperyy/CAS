@@ -1,0 +1,24 @@
+<!--pages/f_game/cla4/num1/gz/gz.wxml-->
+<image class="background" src="{{purl}}"></image>
+
+<view class="page" data-weui-theme="{{theme}}" >
+	
+	<view class="page__bd page__bd_spacing">
+		
+		<view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder"></view></view>
+			<view class="weui-flex__item"><view class="placeholder"></view></view>
+		</view>
+		<view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder1">
+       
+      </view></view>
+			<view class="weui-flex__item"><view class="placeholder1" bindtap="toNext">
+        >>>开始测试
+      </view></view>
+		
+    </view>
+   
+    
+	</view>
+</view>

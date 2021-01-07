@@ -1,0 +1,218 @@
+<!--pages/f_game/cla4/num2/num2.wxml-->
+<!--pages/f_game/cla4/num1/num1.wxml-->
+<!-- <text>pages/f_game/cla4/num1/num1.wxml</text> -->
+<image class="background" src="{{purl}}"></image>
+<view class="page" data-weui-theme="{{theme}}"wx:if="{{ifListen==0}}" >
+	
+	<view class="page__bd page__bd_spacing" >
+		
+		<view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder">
+        <!-- <view class="listen" bindtap="test"></view> -->
+        <audio src="{{src}}" id="myAudio" bindended="ended">
+
+        </audio>
+      </view></view>
+			
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder1">
+        <view class="listen" bindtap="play">播放</view>
+      </view></view>
+			
+    </view>
+    
+	</view>
+</view>
+<view class="page" data-weui-theme="{{theme}}"wx:if="{{ifListen==1&&index==9}}" >
+	
+	<view class="page__bd page__bd_spacing" >
+		
+		<view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder">
+        <!-- <view class="listen" bindtap="test"></view> -->
+        
+
+        
+      </view></view>
+			
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder2">
+        <view class="xx" bindtap="toNext">那些蓝色是黑色的不是绿色的</view>
+      </view></view>
+			
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder2">
+        <view class="xx" bindtap="toNext">那些蓝色是黑色的不是绿色的</view>
+      </view></view>
+			
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder2">
+        <view class="xx" bindtap="toNext">那些蓝色是黑色的不是绿色的</view>
+      </view></view>
+			
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder2">
+        <view class="xx" bindtap="toNext">那些蓝色是黑色的不是绿色的</view>
+      </view></view>
+			
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder2">
+        <view class="xx" bindtap="toNext">那些蓝色是黑色的不是绿色的</view>
+      </view></view>
+			
+    </view>
+    
+	</view>
+</view>
+
+<view class="page" data-weui-theme="{{theme}}"wx:if="{{ifListen==1&&(index>=1)}}" >
+	
+	<view class="page__bd page__bd_spacing" >
+    <view class="weui-flex">
+			<!-- <view class="weui-flex__item"><view class="placeholder">
+				
+			</view></view> -->
+			<view class="weui-flex__item"><view class="placeholder"></view></view>
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholdertext">
+        <view class="text" wx:if="{{index==1}}">{{kg[0]}}蓝色{{kg[1]}}黑色的不是{{kg[2]}}的</view>        
+        <view class="text" wx:if="{{index==2}}">紫色{{kg[0]}}想要{{kg[1]}}是绿色而是{{kg[2]}},</view>
+        <view class="text" wx:if="{{index==2}}">而且{{kg[3]}}让红色黑色着{{kg[4]}}蓝色紫色着</view>
+        <view class="text" wx:if="{{index==3}}">黑色想{{kg[0]}}，于是{{kg[1]}}棕色着又红色着，</view>
+        <view class="text" wx:if="{{index==3}}">{{kg[2]}}绿色让棕色{{kg[3]}}着{{kg[4]}}黑色着</view>
+        <view class="text" wx:if="{{index==4}}">粉色{{kg[0]}}蓝色不是{{kg[1]}}，又想黑色是绿色不是{{kg[2]}}，</view>
+        <view class="text" wx:if="{{index==4}}">{{kg[3]}}红色{{kg[4]}}着，于是{{kg[5]}}是黄色</view>
+        <view class="text" wx:if="{{index==5}}">{{kg[0]}}和绿色的蓝色{{kg[1]}}黑色的，绿色是蓝色{{kg[2]}}不是</view>
+        <view class="text" wx:if="{{index==5}}">那些{{kg[3]}}，不过紫色{{kg[4]}}那些黑色又想{{kg[5]}}绿色</view>
+      </view></view>
+      
+			
+     </view>
+    <!-- <view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholdertext"> -->
+        <!-- <view class="text">{{kg[4]}}绿色让{{kg[5]}}{{kg[6]}}着{{kg[7]}}让蓝色{{kg[8]}}着</view> -->
+        
+        <!-- <view class="text">{{kg[4]}}绿色让{{kg[5]}}{{kg[6]}}着{{kg[7]}}让蓝色{{kg[8]}}着</view> -->
+      <!-- </view></view> -->
+			
+    <!-- </view> -->
+    <view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholdertext">
+			
+        
+       
+      </view></view>
+			
+    </view>
+    <view class="weui-flex">
+			
+			<view class="weui-flex__item"><view class="placeholder1">
+        <button bindtap='handleClickWord' data-w="{{item}}" class="sc-btn" wx:for="{{words}}" wx:item="item" wx:key="key" style="width:200rpx;height:100rpx;text-align: center;">{{item}}</button>
+      </view></view>
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder2">
+        <view class="op" bindtap='handleClickCancel' >清零</view>
+      </view></view>
+			<view class="weui-flex__item"><view class="placeholder2">
+        <view class="op" bindtap='handledel'  >删除</view>
+      </view></view>
+      <view class="weui-flex__item"><view class="placeholder2">
+        <view class="op" bindtap='toNext'  >确定</view>
+      </view></view>
+    </view>
+	</view>
+</view>
+<!-- <view class="page" data-weui-theme="{{theme}}"wx:if="{{ifListen==1&&(index==1)}}" >
+	
+	<view class="page__bd page__bd_spacing" >
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder">
+				
+			</view></view>
+			<view class="weui-flex__item"><view class="placeholder"></view></view>
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholdertext">
+        <view class="text">紫色{{kg[0]}}想要{{kg[1]}}是绿色{{kg[2]}}{{kg[3]}}，</view> -->
+        
+        <!-- <view class="text">{{kg[4]}}绿色让{{kg[5]}}{{kg[6]}}着{{kg[7]}}让蓝色{{kg[8]}}着</view> -->
+      <!-- </view></view>
+      
+			
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholdertext">
+			
+        <view class="text">{{kg[4]}}绿色让{{kg[5]}}{{kg[6]}}着{{kg[7]}}让蓝色{{kg[8]}}着</view> -->
+        
+        <!-- <view class="text">{{kg[4]}}绿色让{{kg[5]}}{{kg[6]}}着{{kg[7]}}让蓝色{{kg[8]}}着</view> -->
+      <!-- </view></view>
+			
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholdertext">
+			
+        
+       
+      </view></view>
+			
+    </view>
+    <view class="weui-flex">
+			
+			<view class="weui-flex__item"><view class="placeholder1">
+        <button bindtap='handleClickWord' data-w="{{item}}" class="sc-btn" wx:for="{{words}}" wx:item="item" wx:key="key" style="width:180rpx;height:100rpx;text-align: center;">{{item}}</button>
+      </view></view>
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder2">
+        <view class="op" bindtap='handleClickCancel' >清零</view>
+      </view></view>
+			<view class="weui-flex__item"><view class="placeholder2">
+        <view class="op" bindtap='handledel'  >删除</view>
+      </view></view>
+      <view class="weui-flex__item"><view class="placeholder2">
+        <view class="op" bindtap='toNext'  >确定</view>
+      </view></view>
+    </view>
+	</view>
+</view> -->
+<!-- <view class="page" data-weui-theme="{{theme}}"wx:if="{{ifListen==1&&(index==4||index==5)}}" >
+	
+	<view class="page__bd page__bd_spacing" >
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder"></view></view>
+			<view class="weui-flex__item"><view class="placeholder"></view></view>
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder1">
+        <button class="sc-btn" style="width:150rpx;height:100rpx;text-align: center;" wx:for="{{scEmptyBtns}}" wx:item="item" wx:key="key">{{item.text}}</button>
+      </view></view>
+			
+    </view>
+    <view class="weui-flex">
+			
+			<view class="weui-flex__item"><view class="placeholder11">
+        <button bindtap='handleClickWord' data-w="{{item}}" class="sc-btn" wx:for="{{words}}" wx:item="item" wx:key="key" style="width:150rpx;height:100rpx;text-align: center;">{{item}}</button>
+      </view></view>
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder2">
+        <view class="op" bindtap='handleClickCancel' >清零</view>
+      </view></view>
+			<view class="weui-flex__item"><view class="placeholder2">
+        <view class="op" bindtap='handledel'  >删除</view>
+      </view></view>
+      <view class="weui-flex__item"><view class="placeholder2">
+        <view class="op" bindtap='toNext'  >确定</view>
+      </view></view>
+    </view>
+	</view>
+</view>  -->

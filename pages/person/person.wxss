@@ -1,0 +1,9 @@
+/* pages/person/person.wxss */
+.placeholder{margin:5px;padding:0 10px;text-align:center;height:190rpx;line-height:190rpx;color:var(--weui-FG-1);margin-top: 25rpx;}
+.placeholder image{
+  height:190rpx;
+  width:190rpx;
+  border-radius: 1rpx;
+}
+.placeholder1{margin:5px;padding:0 10px;text-align:center;height:100rpx;line-height:100rpx;color:rebeccapurple;margin-top: 25rpx;font-size: larger;}
+.placeholder2{margin:5px;padding:0 10px;text-align:left;height:300rpx;line-height:300rpx;color:rebeccapurple;margin-top: 25rpx;font-size: larger;}
