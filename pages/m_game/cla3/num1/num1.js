@@ -11,7 +11,14 @@ Page({
    */
   data: {
     index: 1,
-    answer:[]
+    answer:[],
+    url:[
+      "https://wx2.sinaimg.cn/mw690/0084gu26ly1gmipj07mouj30u01hcn4a.jpg",
+      "https://wx2.sinaimg.cn/mw690/0084gu26ly1gmipj4jyhwj30u01hctfl.jpg",
+      "https://wx1.sinaimg.cn/mw690/0084gu26ly1gmipj9au58j30u01hcah7.jpg",
+      "https://wx1.sinaimg.cn/mw690/0084gu26ly1gmipjeswbfj30u01hcgsg.jpg",
+      "https://wx4.sinaimg.cn/mw690/0084gu26ly1gmipjjb7yyj30u01hc0xh.jpg"
+    ]
 //  var index = 1,
 
   },
@@ -21,28 +28,20 @@ Page({
    */
   onLoad: function (options) {
     wx.getUserInfo({
-      success: res => {
-      
-      // 可以将 res 发送给后台解码出 unionId
-      this.setData({
-        
+      success: res => {     
+      this.setData({      
         name:res.userInfo.nickName
-      })
-      
-      
+      })         
       if (this.userInfoReadyCallback) {
-      this.userInfoReadyCallback(res)
-      
+      this.userInfoReadyCallback(res)     
+      }    
       }
-      
-      }
-      
-      })
+    })
    
     this.setData({
       
       
-      purl: "cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p3/3-2-"+this.data.index+"k.jpg"
+      purl: this.data.url[this.data.index-1]
     });
     
 
@@ -78,7 +77,7 @@ Page({
             // 渲染下一题
             this.setData({
               index: this.data.index + 1,
-              purl: "cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p3/3-2-"+(this.data.index+1)+"k.jpg"
+              purl: this.data.url[this.data.index]
             })
 
           } else {

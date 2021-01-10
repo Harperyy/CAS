@@ -1,4 +1,11 @@
 // pages/f_game/cla3/num1/num1.js
+wx.cloud.init({
+  env: "yqq-3g0xquwqdd5bcff3",
+  traceUser: true,
+  
+
+})
+const db = wx.cloud.database()
 Page({
 
   /**
@@ -7,7 +14,15 @@ Page({
   data: {
     num: 60,
     index: 1,
-    timer:""
+    timer:"",
+    pdata:[
+    "https://wx2.sinaimg.cn/mw690/0084gu26ly1gmigd2rqbej30u01hc7cc.jpg",
+    "https://wx3.sinaimg.cn/mw690/0084gu26ly1gmigda04vjj30u01hcgt9.jpg",
+    "https://wx2.sinaimg.cn/mw690/0084gu26ly1gmigdffzm2j30u01hcqax.jpg",
+    "https://wx3.sinaimg.cn/mw690/0084gu26ly1gmigdkme34j30u01hc10p.jpg",
+    "https://wx1.sinaimg.cn/mw690/0084gu26ly1gmigdryccyj30u01hcdnh.jpg"
+
+  ]
 //  var index = 1,
   },
 
@@ -15,16 +30,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.getUserInfo({
+      success: res => {     
+      this.setData({      
+        name:res.userInfo.nickName
+      })         
+      if (this.userInfoReadyCallback) {
+      this.userInfoReadyCallback(res)     
+      }    
+      }
+    })
+    var url = this.data.pdata[this.data.index-1]
    
     this.setData({
       
       
-      purl: "cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/Q"+this.data.index+".jpg"
+      purl: url
     });
     this.countDown()
 
   },
-  setNum:function(){
+  setNum:function(e){
    this.setData({
      num:60,
    })
@@ -63,10 +89,11 @@ Page({
               console.log('用户点击确定')
               console.log(this.data.index)
               if (this.data.index < 5) {
+                var url = this.data.pdata[this.data.index]
                 // 渲染下一题
                 this.setData({
                   index: this.data.index + 1,
-                  purl: "cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/Q"+(this.data.index+1)+".jpg"
+                  purl:  url
                 })
               this.setNum()
               this.countDown()
@@ -85,7 +112,7 @@ Page({
       that.countDown()
     }
   },
-  toNext: function(){
+  toNext: function(e){
     wx.showModal({
       title: '提示',
       content: '确定了吗？',
@@ -94,12 +121,20 @@ Page({
           console.log('用户点击确定')
           this.endCount()
           console.log(this.data.index)
+          db.collection('gameRecord').add({
+            data:{
+              ans: e.currentTarget.dataset.id,
+              gameId: 'p3-1-'+this.data.index,
+              userId:this.data.name
+            },             
+          })
           if (this.data.index < 5) {
+            var url = this.data.pdata[this.data.index]
             // 渲染下一题
             this.setData({  
               num:60,          
               index: this.data.index + 1,
-              purl: "cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/Q"+(this.data.index+1)+".jpg",
+              purl:  url
             })
             this.countDown()
           } else {

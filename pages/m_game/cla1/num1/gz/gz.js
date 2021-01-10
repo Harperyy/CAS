@@ -13,7 +13,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      purl:"cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p1/gz1k.jpg"
+      purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gmienr9x5nj30fs0x4agq.jpg"
     })
 
   },

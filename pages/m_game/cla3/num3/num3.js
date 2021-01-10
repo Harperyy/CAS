@@ -1,28 +1,47 @@
 // pages/f_game/cla3/num3/num3.js
+wx.cloud.init({
+  env: "yqq-3g0xquwqdd5bcff3",
+  traceUser: true
+})
+const db = wx.cloud.database()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    index: 1
+    index: 1,
 //  var index = 1,
+    url:[
+      "https://wx1.sinaimg.cn/mw690/0084gu26ly1gmipnk1lmpj30fn0rsaev.jpg",
+      "https://wx3.sinaimg.cn/mw690/0084gu26ly1gmipvh7kehj30fn0rstdv.jpg",
+      "https://wx3.sinaimg.cn/mw690/0084gu26ly1gmipvnlwizj30fn0rsn34.jpg",
+      "https://wx1.sinaimg.cn/mw690/0084gu26ly1gmipvsqa0sj30fn0rs43g.jpg"
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.getUserInfo({
+      success: res => {     
+      this.setData({      
+        name:res.userInfo.nickName
+      })         
+      if (this.userInfoReadyCallback) {
+      this.userInfoReadyCallback(res)     
+      }    
+      }
+    })
    
     this.setData({
-      
-      
-      purl: "cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p3/3-3-"+this.data.index+"k.jpg"
+      purl: this.data.url[this.data.index-1]
     });
     
 
   },
-  toNext: function(){
+  toNext: function(e){
     wx.showModal({
       title: '提示',
       content: '确定了吗？',
@@ -30,11 +49,20 @@ Page({
         if (res.confirm) {
           console.log('用户点击确定')
           console.log(this.data.index)
-          if (this.data.index < 5) {
+          db.collection('gameRecord').add({
+            data:{
+              ans: e.currentTarget.dataset.id,
+              gameId: 'p3-3-'+this.data.index,
+              userId:this.data.name
+            },             
+          })
+          if (this.data.index < 4) {
             // 渲染下一题
+            var id = this.data.index
+            console.log("---"+id)
             this.setData({
               index: this.data.index + 1,
-              purl: "cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p3/3-3-"+(this.data.index+1)+"k.jpg"
+              purl: this.data.url[id]
             })
 
           } else {

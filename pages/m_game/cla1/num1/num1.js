@@ -1,4 +1,10 @@
 // pages/f_game/cla1/num1/num1.js
+wx.cloud.init({
+  env: "yqq-3g0xquwqdd5bcff3",
+  traceUser: true
+})
+const db = wx.cloud.database()
+
 Page({
 
   /**
@@ -9,23 +15,33 @@ Page({
     spurl:[],
     u:"cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p1/1-"
 //  var index = 1,
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.getUserInfo({
+      success: res => {     
+      this.setData({      
+        name:res.userInfo.nickName
+      })         
+      if (this.userInfoReadyCallback) {
+      this.userInfoReadyCallback(res)     
+      }    
+      }
+    })
    
     this.setData({
-      
-      
+      userName:userName,
       purl: "cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p1/gzk.jpg",
       spurl:[this.data.u+this.data.index+"-1.jpg",this.data.u+this.data.index+"-2.jpg"]
     });
     
 
   },
-  toNext: function(){
+  toNext: function(e){
     wx.showModal({
       title: '提示',
       content: '确定了吗？',
@@ -33,6 +49,14 @@ Page({
         if (res.confirm) {
           console.log('用户点击确定')
           console.log(this.data.index)
+          db.collection('gameRecord').add({
+            data:{
+              ans: e.currentTarget.dataset.id,
+              gameId: 'p1-1-'+this.data.index,
+              userId:this.data.name
+            },             
+          })
+
           if (this.data.index < 5) {
             // 渲染下一题
             this.setData({
@@ -47,13 +71,13 @@ Page({
             }
             else if(this.data.index==4){
               this.setData({
-                purl:"cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p1/1-4k.jpg",
+                purl:"https://wx1.sinaimg.cn/mw690/0084gu26ly1gmiejqhxawj30t71jk424.jpg",
                 spurl:[this.data.u+this.data.index+"-1.jpg"]
               })
             }
             else{
               this.setData({
-                purl:"cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p1/1-5k.jpg",
+                purl:"https://wx2.sinaimg.cn/mw690/0084gu26ly1gmiejd998rj30t71jk0wb.jpg",
                 spurl:[this.data.u+this.data.index+"-1.jpg"]
               })
             }

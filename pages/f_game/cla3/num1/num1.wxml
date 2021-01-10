@@ -3,30 +3,30 @@
 <view class="block">
 
   <view class="item">
-    <view class="sub_item" bindtap="toNext" id="1">
+    <view class="sub_item" bindtap="toNext" data-id="1">
 1
 
     </view>
-    <view class="sub_item" bindtap="toNext" id="2">
+    <view class="sub_item" bindtap="toNext" data-id="2">
       
 2
     </view>
-    <view class="sub_item" bindtap="toNext" id="3">
+    <view class="sub_item" bindtap="toNext" data-id="3">
       
 3
     </view>
     <!-- <button></button> -->
   </view>
   <view class="item">
-    <view class="sub_item" bindtap="toNext" id="4">
+    <view class="sub_item" bindtap="toNext" data-id="4">
       4
 
     </view>
-    <view class="sub_item" bindtap="toNext" id="5">
+    <view class="sub_item" bindtap="toNext" data-id="5">
       
 5
     </view>
-    <view class="sub_item" bindtap="toNext" id="6">
+    <view class="sub_item" bindtap="toNext" data-id="6">
       6
 
     </view>

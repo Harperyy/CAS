@@ -1,5 +1,10 @@
 // pages/f_game/cla4/num1/num1.js
 const myaudio = wx.createInnerAudioContext({});
+wx.cloud.init({
+  env: "yqq-3g0xquwqdd5bcff3",
+  traceUser: true
+})
+const db = wx.cloud.database()
 Page({
 
   /**
@@ -29,7 +34,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.getUserInfo({
+      success: res => {     
+      this.setData({      
+        name:res.userInfo.nickName
+      })         
+      if (this.userInfoReadyCallback) {
+      this.userInfoReadyCallback(res)     
+      }    
+      }
+    })
     this.setData({
+      
       purl:"cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p4/bj1.jpg",
       src:"https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/1-1.mp3?sign=5a76ac8b6e0d6d25af951d2e67772474&t=1608973143"
 
@@ -138,6 +154,13 @@ Page({
       success:(res)=> {
         if (res.confirm) {
           console.log('用户点击确定')
+          db.collection('gameRecord').add({
+            data:{
+              ans: this.data.scEmptyBtns,
+              gameId: 'p4-2-'+this.data.index,
+              userId:this.data.name
+            },             
+          })
           if(this.data.index<5){
             if(this.data.index+1==2){
               this.setData({

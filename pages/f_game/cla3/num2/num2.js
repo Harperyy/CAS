@@ -1,4 +1,9 @@
 // pages/f_game/cla3/num2/num2.js
+wx.cloud.init({
+  env: "yqq-3g0xquwqdd5bcff3",
+  traceUser: true
+})
+const db = wx.cloud.database()
 Page({
 
   /**
@@ -7,7 +12,22 @@ Page({
   data: {
     index:1,
     num:8,
-    as:0
+    as:0,
+    p1:[
+      "https://wx4.sinaimg.cn/mw690/0084gu26ly1gmige68798j30by0li776.jpg",
+      "https://wx4.sinaimg.cn/mw690/0084gu26ly1gmigekew7bj30by0li41o.jpg",
+      "https://wx4.sinaimg.cn/mw690/0084gu26ly1gmigf9wegfj30by0li772.jpg",
+      "https://wx4.sinaimg.cn/mw690/0084gu26ly1gmigg2xgnpj30by0li41o.jpg",
+      "https://wx2.sinaimg.cn/mw690/0084gu26ly1gmigggfujkj30by0litcb.jpg"
+
+    ],
+    p2:[
+      "https://wx3.sinaimg.cn/mw690/0084gu26ly1gmigecd66dj30by0lin03.jpg",
+      "https://wx1.sinaimg.cn/mw690/0084gu26ly1gmigex91gjj30by0litbl.jpg",
+      "https://wx1.sinaimg.cn/mw690/0084gu26ly1gmigfvmz7rj30by0lijuc.jpg",
+      "https://wx2.sinaimg.cn/mw690/0084gu26ly1gmigg9mb81j30by0lijug.jpg",
+      "https://wx1.sinaimg.cn/mw690/0084gu26ly1gmiggnheorj30by0li41j.jpg"
+    ]
 
   },
 
@@ -15,10 +35,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.getUserInfo({
+      success: res => {     
+      this.setData({      
+        name:res.userInfo.nickName
+      })         
+      if (this.userInfoReadyCallback) {
+      this.userInfoReadyCallback(res)     
+      }    
+      }
+    })
     this.setData({
       
       
-      purl: "cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/Q"+this.data.index+"1.jpg"
+      purl: this.data.p1[this.data.index-1]
     });
     this.countDown()
     
@@ -47,27 +77,33 @@ Page({
         })
       that.setData({
         as:1,
-        purl: "cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/Q"+this.data.index+"2.jpg"
+        purl:this.data.p2[this.data.index-1]
       })
     }else{
       that.countDown()
     }
   },
-  toNext: function(){
+  toNext: function(e){
     wx.showModal({
       title: '提示',
       content: '确定了吗？',
       success:(res)=> {
         if (res.confirm) {
           console.log('用户点击确定')
-          
+          db.collection('gameRecord').add({
+            data:{
+              ans: e.currentTarget.dataset.id,
+              gameId: 'p3-2-'+this.data.index,
+              userId:this.data.name
+            },             
+          })
           if (this.data.index < 5) {
             // 渲染下一题
             this.setData({
               index: this.data.index + 1,
               as:0,
               num:8,
-              purl: "cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/Q"+(this.data.index+1)+"1.jpg"
+              purl: this.data.p1[this.data.index]
             })
             this.countDown()
 

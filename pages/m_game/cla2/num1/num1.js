@@ -1,4 +1,9 @@
 // pages/f_game/cla1/num2/num2.js
+wx.cloud.init({
+  env: "yqq-3g0xquwqdd5bcff3",
+  traceUser: true
+})
+const db = wx.cloud.database()
 Page({
 
   /**
@@ -12,7 +17,18 @@ index:1
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.getUserInfo({
+      success: res => {     
+      this.setData({      
+        name:res.userInfo.nickName
+      })         
+      if (this.userInfoReadyCallback) {
+      this.userInfoReadyCallback(res)     
+      }    
+      }
+    })
     this.setData({
+      
       purl:'cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p2/1_'+(this.data.index+1)+'k.jpg',
       group:[3,6,9,4,7,8,5,1,2],
       checkedItem: [0,0,0,0,0,0,0,0,0],
@@ -49,6 +65,13 @@ index:1
         if (res.confirm) {
           console.log('用户点击确定')
           console.log(this.data.index)
+          db.collection('gameRecord').add({
+            data:{
+              ans: this.data.checkedItem,
+              gameId: 'p2-1-'+this.data.index,
+              userId:this.data.name
+            },             
+          })
           if (this.data.index < 5) {
             if(this.data.index+1==2){
               this.setData({

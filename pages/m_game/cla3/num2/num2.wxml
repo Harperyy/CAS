@@ -7,9 +7,9 @@
 </view>
 <view class="block" wx:if="{{as==1}}">
   <view class="item">
-    <view class="sub_item" bindtap="toNext">是</view>
+    <view class="sub_item" bindtap="toNext" data-id='是'>是</view>
   </view>
   <view class="item">
-    <view class="sub_item" bindtap="toNext">否</view>
+    <view class="sub_item" bindtap="toNext" data-id='否'>否</view>
   </view>
 </view>

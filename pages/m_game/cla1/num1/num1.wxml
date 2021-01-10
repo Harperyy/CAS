@@ -10,10 +10,10 @@
 		</view>
 		<view class="weui-flex">
       <view class="weui-flex__item"><view class="placeholder">
-        <image src="{{spurl[0]}}"bindtap="toNext"></image>
+        <image src="{{spurl[0]}}"bindtap="toNext" data-id="1"></image>
       </view></view>
 			<view class="weui-flex__item"><view class="placeholder">
-        <image src="{{spurl[1]}}"bindtap="toNext"></image>
+        <image src="{{spurl[1]}}"bindtap="toNext" data-id="2"></image>
       </view></view>
 		
     </view>
@@ -31,19 +31,19 @@
 		</view>
 		<view class="weui-flex">
       <view class="weui-flex__item"><view class="placeholder">
-        <image src="{{spurl[0]}}"bindtap="toNext"></image>
+        <image src="{{spurl[0]}}"bindtap="toNext"data-id="1"></image>
       </view></view>
 			<view class="weui-flex__item"><view class="placeholder">
-        <image src="{{spurl[1]}}"bindtap="toNext"></image>
+        <image src="{{spurl[1]}}"bindtap="toNext"data-id="2"></image>
       </view></view>
 		
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item"><view class="placeholder">
-        <image src="{{spurl[2]}}"bindtap="toNext"></image>
+        <image src="{{spurl[2]}}"bindtap="toNext"data-id="3"></image>
       </view></view>
 			<view class="weui-flex__item"><view class="placeholder">
-        <image src="{{spurl[3]}}"bindtap="toNext"></image>
+        <image src="{{spurl[3]}}"bindtap="toNext"data-id="4"></image>
       </view></view>
 		
     </view>
@@ -60,37 +60,37 @@
 		</view>
 		<view class="weui-flex">
       <view class="weui-flex__item"><view class="placeholder1">
-        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"></image>
+        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}" data-id="1"></image>
       </view></view>
 			<view class="weui-flex__item"><view class="placeholder1">
-        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"></image>
+        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}" data-id="2"></image>
       </view></view>
 		
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item"><view class="placeholder1">
-        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"></image>
+        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"data-id="3"></image>
       </view></view>
 			<view class="weui-flex__item"><view class="placeholder1">
-        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"></image>
+        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"data-id="4"></image>
       </view></view>
 		
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item"><view class="placeholder1">
-        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"></image>
+        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"data-id="5"></image>
       </view></view>
 			<view class="weui-flex__item"><view class="placeholder1">
-        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"></image>
+        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"data-id="6"></image>
       </view></view>
 		
     </view>
     <view class="weui-flex">
       <view class="weui-flex__item"><view class="placeholder1">
-        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"></image>
+        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"data-id="7"></image>
       </view></view>
 			<view class="weui-flex__item"><view class="placeholder1">
-        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"></image>
+        <image src="{{spurl[0]}}"bindtap="toNext" style="opacity:{{0}}"data-id="8"></image>
       </view></view>
 		
     </view>
