@@ -23,7 +23,7 @@ Page({
       { text: "", index: 7 },
     ],
     words:[
-       "鼠","脸", "牛","海","家","灯","山", "树"
+      "鼠","脸", "牛","山","家"
     ],
     index:1,
     ifListen:0
@@ -44,7 +44,7 @@ Page({
       }
     })
     this.setData({
-      purl:"cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p4/bj1.jpg",
+      purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
       src:"https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/1-1.mp3?sign=5a76ac8b6e0d6d25af951d2e67772474&t=1608973143"
 
       
@@ -155,6 +155,7 @@ Page({
             
             if(this.data.index+1==2){
               this.setData({
+                purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
                 index:this.data.index+1,
                 ifListen:0,
                 scEmptyBtns: [
@@ -165,17 +166,18 @@ Page({
                   { text: "", index: 4 },
                   { text: "", index: 5 },
                   { text: "", index: 6 },
-                  { text: "", index: 7 },
-                  { text: "", index: 8 },
-                  { text: "", index: 9 },
+                  // { text: "", index: 7 },
+                  // { text: "", index: 8 },
+                  // { text: "", index: 9 },
                 ],
                 words:[
-                  "雪", "爱", "土","字","鹿", "羊", "海","天", "蓝","头"
+                  "猪", "水", "草","雷","脚", "床", "人" 
                 ],
               })
             }
             else if(this.data.index+1==3){
               this.setData({
+                purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
                 index:this.data.index+1,
                 ifListen:0,
                 scEmptyBtns: [
@@ -186,19 +188,20 @@ Page({
                   { text: "", index: 4 },
                   { text: "", index: 5 },
                   { text: "", index: 6 },
-                  { text: "", index: 7 },
-                  { text: "", index: 8 },
-                  { text: "", index: 9 },
-                  { text: "", index: 10 },
-                  { text: "", index: 11}
+                  // { text: "", index: 7 },
+                  // { text: "", index: 8 },
+                  // { text: "", index: 9 },
+                  // { text: "", index: 10 },
+                  // { text: "", index: 11}
                 ],
                 words:[
-                  "光", "月", "雷","鞋","狗", "水", "脚","床","书", "草", "猪","人"
+                  "猴", "字", "爱","蓝","木", "海", "天"
                 ],
               })
             }
             else if(this.data.index+1==4){
               this.setData({index:this.data.index+1,
+                purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
                 ifListen:0,
                 scEmptyBtns: [
                   { text: "", index: 0 },
@@ -209,23 +212,24 @@ Page({
                   { text: "", index: 5 },
                   { text: "", index: 6 },
                   { text: "", index: 7 },
-                  { text: "", index: 8 },
-                  { text: "", index: 9 },
-                  { text: "", index: 10 },
-                  { text: "", index: 11 },
-                  { text: "", index: 12 },
-                  { text: "", index: 13 },
+                  // { text: "", index: 8 },
+                  // { text: "", index: 9 },
+                  // { text: "", index: 10 },
+                  // { text: "", index: 11 },
+                  // { text: "", index: 12 },
+                  // { text: "", index: 13 },
                   
         
         
                 ],
                 words:[
-                  "海", "光", "人","手","头", "河", "猫","雨","天", "风", "草","电", "书","鸟"
+                  "饭", "月", "门","霜","读", "山", "牛", "鸭"//8
                 ],
               })
             }
             else if(this.data.index+1==5){
               this.setData({
+                purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
                 index:this.data.index+1,
                 ifListen:0,
                 scEmptyBtns: [
@@ -238,14 +242,14 @@ Page({
                   { text: "", index: 6 },
                   { text: "", index: 7 },
                   {text: "", index: 8 },
-                  { text: "", index: 9 },
-                  { text: "", index: 10 },
-                  { text: "", index: 11 },
-                  { text: "", index: 12 },
-                  { text: "", index: 13 },
+                  // { text: "", index: 9 },
+                  // { text: "", index: 10 },
+                  // { text: "", index: 11 },
+                  // { text: "", index: 12 },
+                  // { text: "", index: 13 },
                 ],
                 words:[
-                  "饭", "月", "白","霜","菜", "山", "牛","窗","毒", "鸡", "门","狗", "手","鸭"
+                  "海", "光", "猫","雨","合", "草", "鸟","书", "猴"//9
                 ],
               })
             }

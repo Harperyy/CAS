@@ -74,23 +74,23 @@
 <view class="page" data-weui-theme="{{theme}}"wx:if="{{ifListen==1&&(index>=1)}}" >
 	
 	<view class="page__bd page__bd_spacing" >
-    <view class="weui-flex">
+    <!-- <view class="weui-flex"> -->
 			<!-- <view class="weui-flex__item"><view class="placeholder">
 				
 			</view></view> -->
-			<view class="weui-flex__item"><view class="placeholder"></view></view>
-    </view>
+		 <view class="weui-flex__item"><view class="placeholder"></view></view>
+    	<!--</view>  -->
     <view class="weui-flex">
 			<view class="weui-flex__item"><view class="placeholdertext">
         <view class="text" wx:if="{{index==1}}">{{kg[0]}}蓝色{{kg[1]}}黑色的不是{{kg[2]}}的</view>        
         <view class="text" wx:if="{{index==2}}">紫色{{kg[0]}}想要{{kg[1]}}是绿色而是{{kg[2]}},</view>
         <view class="text" wx:if="{{index==2}}">而且{{kg[3]}}让红色黑色着{{kg[4]}}蓝色紫色着</view>
-        <view class="text" wx:if="{{index==3}}">黑色想{{kg[0]}}，于是{{kg[1]}}棕色着又红色着，</view>
-        <view class="text" wx:if="{{index==3}}">{{kg[2]}}绿色让棕色{{kg[3]}}着{{kg[4]}}黑色着</view>
-        <view class="text" wx:if="{{index==4}}">粉色{{kg[0]}}蓝色不是{{kg[1]}}，又想黑色是绿色不是{{kg[2]}}，</view>
-        <view class="text" wx:if="{{index==4}}">{{kg[3]}}红色{{kg[4]}}着，于是{{kg[5]}}是黄色</view>
-        <view class="text" wx:if="{{index==5}}">{{kg[0]}}和绿色的蓝色{{kg[1]}}黑色的，绿色是蓝色{{kg[2]}}不是</view>
-        <view class="text" wx:if="{{index==5}}">那些{{kg[3]}}，不过紫色{{kg[4]}}那些黑色又想{{kg[5]}}绿色</view>
+        <view class="text" wx:if="{{index==3}}">黑色想{{kg[0]}},于是{{kg[1]}}棕色着又红色着，{{kg[2]}}绿色让棕色{{kg[3]}}着{{kg[4]}}黑色着</view>
+       
+        <view class="text" wx:if="{{index==4}}">粉色{{kg[0]}}蓝色不是{{kg[1]}}，又想黑色是绿色不是{{kg[2]}}，{{kg[3]}}红色{{kg[4]}}着，于是{{kg[5]}}是黄色</view>
+        <!-- <view class="text" wx:if="{{index==4}}"></view> -->
+        <view class="text" wx:if="{{index==5}}">{{kg[0]}}和绿色的蓝色{{kg[1]}}黑色的，绿色是蓝色{{kg[2]}}不是那些{{kg[3]}}，不过紫色{{kg[4]}}那些黑色又想{{kg[5]}}绿色</view>
+        <!-- <view class="text" wx:if="{{index==5}}"></view> -->
       </view></view>
       
 			

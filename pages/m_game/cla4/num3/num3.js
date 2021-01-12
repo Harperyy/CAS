@@ -1,5 +1,10 @@
 // pages/f_game/cla4/num1/num1.js
 const myaudio = wx.createInnerAudioContext({});
+wx.cloud.init({
+  env: "yqq-3g0xquwqdd5bcff3",
+  traceUser: true
+})
+const db = wx.cloud.database()
 Page({
 
   /**
@@ -19,9 +24,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.getUserInfo({
+      success: res => {     
+      this.setData({      
+        name:res.userInfo.nickName
+      })         
+      if (this.userInfoReadyCallback) {
+      this.userInfoReadyCallback(res)     
+      }    
+      }
+    })
     this.setData({
-      purl:"cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p4/bj1.jpg",
-      src:"https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/1-1.mp3?sign=5a76ac8b6e0d6d25af951d2e67772474&t=1608973143"
+      purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
+      src:"https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/3-1.mp3?sign=f47aaa05a2ae2c2e26485d9cc9f1cab8&t=1610462303"
 
       
 
@@ -31,7 +46,33 @@ Page({
       console.log('end')
       this.setData({
         ifListen:1
+
       })
+      if(this.data.index==1){
+        this.setData({
+          purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gmlaahup69j30hm0zan0i.jpg"
+        })
+      }
+      else if(this.data.index==2){
+        this.setData({
+          purl:"https://wx3.sinaimg.cn/mw690/0084gu26ly1gmlaam2cfvj30hm0za0w5.jpg"
+        })
+      }
+      else if(this.data.index==3){
+        this.setData({
+          purl:"https://wx3.sinaimg.cn/mw690/0084gu26ly1gmlaaqhci9j30hm0zaq6a.jpg"
+        })
+      }
+      else if(this.data.index==4){
+        this.setData({
+          purl:"https://wx2.sinaimg.cn/mw690/0084gu26ly1gmlaaun00dj30hm0zaadg.jpg"
+        })
+      }
+      else if(this.data.index==5){
+        this.setData({
+          purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gmlaay5x5uj30hm0za0w5.jpg"
+        })
+      }
     })
 
   },
@@ -55,47 +96,58 @@ Page({
       success:(res)=> {
         if (res.confirm) {
           console.log('用户点击确定')
+          db.collection('gameRecord').add({
+            data:{
+              ans: this.data.scEmptyBtns,
+              gameId: 'p4-3-'+this.data.index,
+              userId:this.data.name
+            },             
+          })
           if(this.data.index<5){
             if(this.data.index+1==2){
               this.setData({
-                purl:'cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p4/bj1.jpg',
+                purl:'https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg',
                 index:this.data.index+1,
                 ifListen:0,
                 
                 words:[
-                  "黄色","绿色","褐色","紫色","黑色","蓝色"
+                  "黄色","粉色","紫色","黑色"
                 ],
+                src:"https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/3-2.mp3?sign=0f5a8d598e14ae41c07587961ddf28d5&t=1610462331"
               })
             }
             else if(this.data.index+1==3){
               this.setData({
-                purl:'cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p4/bj1.jpg',
+                purl:'https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg',
                 index:this.data.index+1,
                 ifListen:0,
                 words:[
-                  "黑色着","绿色着","蓝色着","粉色着","黄色着","紫色着"
+                  "黑色","褐色","蓝色","粉色","黄色"
                 ],
+                src:"https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/3-3.mp3?sign=38943539327d0fde245a19308e2560bc&t=1610462386"
               })
             }
             else if(this.data.index+1==4){
-              purl:'cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p4/bj1.jpg',
+              purl:'https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg',
               this.setData({index:this.data.index+1,
                 ifListen:0,
                 
                 words:[
-                  "黑色", "粉色", "是","不是","蓝色", "过去", "现在","绿色","蓝色"
+                  "黑色着","绿色着","蓝色着","粉色着","黄色着"
                 ],
+                src:"https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/3-4.mp3?sign=172d1d1e705a05df1cfa1cedd817a83d&t=1610462430"
               })
             }
             else if(this.data.index+1==5){
               this.setData({
-                purl:'cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p4/bj1.jpg',
+                purl:'https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg',
                 index:this.data.index+1,
                 ifListen:0,
                 
                 words:[
-                  "这些", "那些", "紫色","是","又","但", "想", "不想","黑色"
+                  "紫色着","绿色着","不是紫色着", "不是绿色着"
                 ],
+                src:"https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/3-5.mp3?sign=e412baba01f27fccb6bd3018c0439739&t=1610462476"
               })
             }
           }

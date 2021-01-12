@@ -18,12 +18,10 @@ Page({
       { text: "", index: 2 },
       { text: "", index: 3 },
       { text: "", index: 4 },
-      { text: "", index: 5 },
-      { text: "", index: 6 },
-      { text: "", index: 7 },
+     
     ],
     words:[
-       "鼠","脸", "牛","海","家","灯","山", "树"
+      "鼠","脸", "牛","山","家"
     ],
     index:1,
     ifListen:0
@@ -46,7 +44,7 @@ Page({
     this.setData({
       
       purl:"cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p4/bj1.jpg",
-      src:"https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/1-1.mp3?sign=5a76ac8b6e0d6d25af951d2e67772474&t=1608973143"
+      src:"https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/1-1.mp3?sign=9587c9b1a49b1dcecfb764df5a40cd1d&t=1610458794"
 
       
 
@@ -166,13 +164,14 @@ Page({
                   { text: "", index: 4 },
                   { text: "", index: 5 },
                   { text: "", index: 6 },
-                  { text: "", index: 7 },
-                  { text: "", index: 8 },
-                  { text: "", index: 9 },
+                  // { text: "", index: 7 },
+                  // { text: "", index: 8 },
+                  // { text: "", index: 9 },
                 ],
                 words:[
-                  "雪", "爱", "土","字","鹿", "羊", "海","天", "蓝","头"
+                  "猪", "水", "草","雷","脚", "床", "人"
                 ],
+                src:"https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/1-2.mp3?sign=173a129cecddd90129aaa789ef4ae593&t=1610458855"
               })
             }
             else if(this.data.index+1==3){
@@ -187,15 +186,16 @@ Page({
                   { text: "", index: 4 },
                   { text: "", index: 5 },
                   { text: "", index: 6 },
-                  { text: "", index: 7 },
-                  { text: "", index: 8 },
-                  { text: "", index: 9 },
-                  { text: "", index: 10 },
-                  { text: "", index: 11}
+                  // { text: "", index: 7 },
+                  // { text: "", index: 8 },
+                  // { text: "", index: 9 },
+                  // { text: "", index: 10 },
+                  // { text: "", index: 11}
                 ],
                 words:[
-                  "光", "月", "雷","鞋","狗", "水", "脚","床","书", "草", "猪","人"
+                  "猴", "字", "爱","蓝","木", "海", "天"//7
                 ],
+                src:"https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/1-3.mp3?sign=b208e6155a510ac96108c0c35d0a2a2f&t=1610458878"
               })
             }
             else if(this.data.index+1==4){
@@ -210,19 +210,16 @@ Page({
                   { text: "", index: 5 },
                   { text: "", index: 6 },
                   { text: "", index: 7 },
-                  { text: "", index: 8 },
-                  { text: "", index: 9 },
-                  { text: "", index: 10 },
-                  { text: "", index: 11 },
-                  { text: "", index: 12 },
-                  { text: "", index: 13 },
+                 
+                  
                   
         
         
                 ],
                 words:[
-                  "海", "光", "人","手","头", "河", "猫","雨","天", "风", "草","电", "书","鸟"
+                  "饭", "月", "门","霜","读", "山", "牛", "鸭"//8
                 ],
+                src:"https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/1-4.mp3?sign=58fd3de1f931b0914dc833bad6e1805d&t=1610458900"
               })
             }
             else if(this.data.index+1==5){
@@ -239,15 +236,12 @@ Page({
                   { text: "", index: 6 },
                   { text: "", index: 7 },
                   {text: "", index: 8 },
-                  { text: "", index: 9 },
-                  { text: "", index: 10 },
-                  { text: "", index: 11 },
-                  { text: "", index: 12 },
-                  { text: "", index: 13 },
+                 
                 ],
                 words:[
-                  "饭", "月", "白","霜","菜", "山", "牛","窗","毒", "鸡", "门","狗", "手","鸭"
+                  "海", "光", "猫","雨","合", "草", "鸟","书", "猴"//9
                 ],
+                src:"https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/1-5.mp3?sign=897aea784e60cd198f9d1ed0c6d6df67&t=1610458926"
               })
             }
           }
