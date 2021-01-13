@@ -52,7 +52,7 @@ Page({
   },
   setNum:function(e){
    this.setData({
-     num:60,
+     num:0,
    })
   },
    //倒计时60秒  

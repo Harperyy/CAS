@@ -98,8 +98,8 @@ Page({
                   index: this.data.index + 1,
                   purl: this.data.url[this.data.index]
                 })
-                this.setNum()
-                this.countDown()
+                // this.setNum()
+                // this.countDown()
               } else {
                 wx.redirectTo({
                   url: '/pages/f_game/cla4/num1/gz',
@@ -132,6 +132,7 @@ Page({
               index: this.data.index + 1,
               purl: this.data.url[this.data.index]
             })
+            this.setNum()
             this.countDown()
           } else {
             wx.redirectTo({
