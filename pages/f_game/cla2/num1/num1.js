@@ -12,7 +12,7 @@ Page({
   data: {
     timer:"",
     num:60,
-index:1
+    index:1
   },
 
   /**
@@ -69,53 +69,71 @@ index:1
      var that = this,num = that.data.num,flag=that.data.flag;
      console.log(num)
      if(num==0){
-      if (this.data.index < 5) {
-        if(this.data.index+1==2){
-          this.setData({
-            purl:'cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p2/1_'+(this.data.index+2)+'b.jpg',
-            group:[87,98,86,89,69,68,96,78,76],
-            checkedItem: [0,0,0,0,0,0,0,0,0],
-            index:this.data.index+1,
+      wx.showModal({
+        title: '提示',
+        content: '看来这道题有点难，试试下一题吧',
+        showCancel:false,
+        confirmText:'下一题',
+        success:(res)=> {
+          if (res.confirm) {
+            console.log('用户点击确定')
+            console.log(this.data.index)
             
-
+          db.collection('gameRecord').add({
+            data:{
+              ans: this.data.checkedItem,
+              gameId: 'p2-1-'+this.data.index,
+              userId:this.data.name,
+              time:60-this.data.num
+            },             
           })
-        }else if(this.data.index+1==3){
-          this.setData({
-            purl:'cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p2/1_'+(this.data.index+2)+'b.jpg',
-            group:[17,74,67,77,14,64,71,41,61],
-            checkedItem: [0,0,0,0,0,0,0,0,0],
-            index:this.data.index+1,
-            
+          if (this.data.index < 5) {
+            if(this.data.index+1==2){
+              this.setData({
+                purl:'cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p2/1_'+(this.data.index+2)+'b.jpg',
+                group:[87,98,86,89,69,68,96,78,76],
+                checkedItem: [0,0,0,0,0,0,0,0,0],
+                index:this.data.index+1,
+                
 
-          })
-        }else if(this.data.index+1==4){
-          this.setData({
-            purl:'cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p2/1_'+(this.data.index+2)+'b.jpg',
-            group:[674,964,471,215,647,715,711,694,641],
-            checkedItem: [0,0,0,0,0,0,0,0,0],
-            index:this.data.index+1,
-            
+              })
+            }else if(this.data.index+1==3){
+              this.setData({
+                purl:'cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p2/1_'+(this.data.index+2)+'b.jpg',
+                group:[17,74,67,77,14,64,71,41,61],
+                checkedItem: [0,0,0,0,0,0,0,0,0],
+                index:this.data.index+1,
+                
 
-          })
-        } else if(this.data.index+1==5){
-          this.setData({
-            purl:'cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p2/1_'+(this.data.index+2)+'b.jpg',
-            group:[776,689,572,764,275,772,576,975,289],
-            checkedItem: [0,0,0,0,0,0,0,0,0],
-            index:this.data.index+1,
-            
+              })
+              }else if(this.data.index+1==4){
+              this.setData({
+                purl:'cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p2/1_'+(this.data.index+2)+'b.jpg',
+                group:[674,964,471,215,647,715,711,694,641],
+                checkedItem: [0,0,0,0,0,0,0,0,0],
+                index:this.data.index+1,
+                
 
-          })
-        } 
+              })
+              } else if(this.data.index+1==5){
+              this.setData({
+                purl:'cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p2/1_'+(this.data.index+2)+'b.jpg',
+                group:[776,689,572,764,275,772,576,975,289],
+                checkedItem: [0,0,0,0,0,0,0,0,0],
+                index:this.data.index+1,
+                
 
-
-
-      }else{
-        wx.redirectTo({
-          url: '../num2/num2',
-        })
-      }
-       
+              })
+            } 
+            this.setNum()
+            this.countDown()
+            console.log(this.data.index)
+            } else if (res.cancel) {
+             console.log('用户点击取消')
+             }
+            }
+          }
+  })
      
      }else{
       that.countDown()
@@ -148,6 +166,7 @@ index:1
         if (res.confirm) {
           console.log('用户点击确定')
           console.log(this.data.index)
+          this.endCount()
           db.collection('gameRecord').add({
             data:{
               ans: this.data.checkedItem,
@@ -194,14 +213,14 @@ index:1
 
               })
             } 
-            this.setData()
+            this.setNum()
             this.countDown()
 
 
 
           }else{
             wx.redirectTo({
-              url: '../num2/num2',
+              url: '../../yd2/sp1/sp',
             })
           }
         }

@@ -1,9 +1,24 @@
 <!--pages/f_game/cla3/num2/num2.wxml-->
 <image class="background" src="{{purl}}"></image>
-<view class="js" wx:if="{{as==0&&num<=5}}">
-  <view class="item">
-    <view class="sub_item">{{5-num}}</view>
-  </view>
+<view class="page" data-weui-theme="{{theme}}" wx:if="{{as==0}}">
+	
+	<view class="page__bd page__bd_spacing">
+		
+		<view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder1">
+          {{10-num}}
+      </view></view>
+			<view class="weui-flex__item"><view class="placeholder1"></view></view>
+		</view>
+		<view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder">
+        仔细观察下图10秒钟
+      </view></view>
+		
+		
+    </view>
+    
+	</view>
 </view>
 <view class="block" wx:if="{{as==1}}">
   <view class="item">

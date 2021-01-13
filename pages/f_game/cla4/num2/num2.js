@@ -5,6 +5,7 @@ wx.cloud.init({
   traceUser: true
 })
 const db = wx.cloud.database()
+
 Page({
 
   /**
@@ -25,6 +26,8 @@ Page({
     words:[
       "这些", "是", "绿色","不是","那些", "黑色"
     ],
+    num:60,
+    timer:"",
     index:1,
     ifListen:0,
     kg:['____','____','____','____','____','____','____','____','____','____','____','____','____']
@@ -58,9 +61,116 @@ Page({
         ifListen:1,
         purl:'cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p4/2-'+this.data.index+'k.jpg'
       })
+      this.setNum()
+      this.countDown()
     })
 
   },
+  setNum:function(e){
+    this.setData({
+      num:60,
+    })
+   },
+    //倒计时60秒  
+    countDown: function() {
+     var that = this,
+       num = that.data.num;
+    
+       that.data.timer= setTimeout(function(){
+       if(num>=0){
+       that.setData({
+         num :num-1
+       })
+       that.endNum()}
+     },1000)
+ 
+   },
+   endCount:function(){
+     var that = this;
+       //清除计时器  即清除setInter
+       clearInterval(that.data.timer)
+       console.log("clear")
+   },
+   endNum:function(){
+     var that = this,num = that.data.num,flag=that.data.flag;
+     console.log(num)
+     if(num==0){
+       wx.showModal({
+           title: '提示',
+           content: '看来这道题有点难，试试下一题吧',
+           showCancel:false,
+           confirmText:'下一题',
+           success:(res)=> {
+             if (res.confirm) {
+               console.log('用户点击确定')
+               console.log(this.data.index)
+               db.collection('gameRecord').add({
+                data:{
+                  ans:this.data.scEmptyBtns,
+                  gameId: 'p4-2-'+this.data.index,
+                  userId:this.data.name,
+                  time:60-this.data.num
+                },             
+              })
+              if(this.data.index<5){
+                if(this.data.index+1==2){
+                  this.setData({
+                    purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
+                    index:this.data.index+1,
+                    ifListen:0,
+                    
+                    words:[
+                      "绿色", "紫色", "黄色","蓝色","又让", "不让","是","不是"
+                    ],
+                  })
+                }
+                else if(this.data.index+1==3){
+                  this.setData({
+                    purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
+                    index:this.data.index+1,
+                    ifListen:0,
+                    words:[
+                      "不是", "然后", "所以","是","紫色", "红色","黄色","蓝色"
+                    ],
+                  })
+                }
+                else if(this.data.index+1==4){
+                  purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
+                  this.setData({index:this.data.index+1,
+                    ifListen:0,
+                    
+                    words:[
+                      "黑色", "粉色", "是","不是","蓝色", "过去", "现在","绿色","蓝色"
+                    ],
+                  })
+                }
+                else if(this.data.index+1==5){
+                  this.setData({
+                    purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
+                    index:this.data.index+1,
+                    ifListen:0,
+                    
+                    words:[
+                      "这些", "那些", "紫色","是","又","但", "想", "不想","黑色"
+                    ],
+                  })
+                }
+              }
+              else{
+                wx.redirectTo({
+                  url: '../../yd4/sp2/sp',
+                })
+              }
+               console.log(this.data.index)
+             } else if (res.cancel) {
+           console.log('用户点击取消')
+         }
+       }
+     })    
+     }else{
+       that.countDown()
+     }
+   },
   play:function(e){
     
     
@@ -157,7 +267,8 @@ Page({
             data:{
               ans:this.data.scEmptyBtns,
               gameId: 'p4-2-'+this.data.index,
-              userId:this.data.name
+              userId:this.data.name,
+              time:60-this.data.num
             },             
           })
           if(this.data.index<5){
@@ -206,7 +317,7 @@ Page({
           }
           else{
             wx.redirectTo({
-              url: '../num3/gz/gz',
+              url: '../../yd4/sp3/sp',
             })
           }
         }

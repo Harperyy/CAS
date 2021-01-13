@@ -50,3 +50,17 @@
   background-color: rgb(255, 254, 254);
   color: rgb(66, 6, 136);
 }
+.placeholder{
+  font-size: 50rpx;
+  margin-left: 60rpx;
+  margin-right: 60rpx;
+  padding-left:20rpx ;
+  padding-right: 20rpx;
+  text-align:center;height:130rpx;line-height:130rpx;color:rebeccapurple;margin-top: 25rpx;font-weight: bolder;background-color: rgb(243, 223, 167);}
+  .placeholder1{
+    font-size: 40rpx;
+    margin-left: 60rpx;
+    margin-right: 60rpx;
+    padding-left:20rpx ;
+    padding-right: 20rpx;
+    text-align:center;height:130rpx;line-height:130rpx;color:rgb(251, 250, 252);margin-top: 25rpx;font-weight: bolder;}

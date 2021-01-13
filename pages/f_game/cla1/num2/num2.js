@@ -125,7 +125,7 @@ num:60
                 })
               } 
   
-              this.setData()
+              this.setNum()
               this.countDown()
   
             }else{
@@ -223,7 +223,7 @@ num:60
               })
             } 
 
-            this.setData()
+            this.setNum()
             this.countDown()
 
           }else{

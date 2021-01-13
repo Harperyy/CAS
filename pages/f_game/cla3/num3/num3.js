@@ -89,7 +89,8 @@ Page({
                 data:{
                   ans: e.currentTarget.dataset.id,
                   gameId: 'p3-3-'+this.data.index,
-                  userId:this.data.name
+                  userId:this.data.name,
+                  time:60-this.data.num
                 },             
               })
               if (this.data.index < 4) {
@@ -98,11 +99,11 @@ Page({
                   index: this.data.index + 1,
                   purl: this.data.url[this.data.index]
                 })
-                // this.setNum()
-                // this.countDown()
+                this.setNum()
+                this.countDown()
               } else {
                 wx.redirectTo({
-                  url: '/pages/f_game/cla4/num1/gz',
+                  url: '../../yd3/sp3/sp',
                 })
               }
               console.log(this.data.index)
@@ -130,13 +131,14 @@ Page({
             this.setData({
               num:60,
               index: this.data.index + 1,
-              purl: this.data.url[this.data.index]
+              purl: this.data.url[this.data.index],
+              time:60-this.data.num
             })
             this.setNum()
             this.countDown()
           } else {
             wx.redirectTo({
-              url: '../../cla4/num1/gz',
+              url: '../../yd3/sp3/sp',
             })
           }
           console.log(this.data.index)

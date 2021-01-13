@@ -11,8 +11,9 @@ Page({
    */
   data: {
     index:1,
-    num:8,
+    num:10,
     as:0,
+    timer:"",
     p1:[
       "https://wx4.sinaimg.cn/mw690/0084gu26ly1gmige68798j30by0li776.jpg",
       "https://wx4.sinaimg.cn/mw690/0084gu26ly1gmigekew7bj30by0li41o.jpg",
@@ -47,7 +48,7 @@ Page({
     })
     this.setData({
       
-     
+      
       purl: this.data.p1[this.data.index-1]
     });
     this.countDown()
@@ -55,27 +56,36 @@ Page({
     
 
   },
+  setNum:function(e){
+    this.setData({
+      num:10,
+    })
+   },
   //倒计时5秒
   countDown: function() {
     var that = this,
       num = that.data.num;
-    setTimeout(function(){
+   
+      that.data.timer= setTimeout(function(){
+      if(num>=0){
       that.setData({
         num :num-1
       })
-      that.endNum()
+      that.endNum()}
     },1000)
 
   },
+  endCount:function(){
+    var that = this;
+      //清除计时器  即清除setInter
+      clearInterval(that.data.timer)
+      console.log("clear")
+  },
   endNum:function(){
-    var that = this,num = that.data.num;
+    var that = this,num = that.data.num,flag=that.data.flag;
     console.log(num)
     if(num==0){
-      wx.showModal({
-          title: '提示',
-          content: '时间结束了呢，相信你一定记住了吧',
-        })
-      that.setData({
+      this.setData({
         as:1,
         purl:this.data.p2[this.data.index-1]
       })
@@ -83,36 +93,39 @@ Page({
       that.countDown()
     }
   },
-  toNext: function(){
+  toNext: function(e){
     wx.showModal({
       title: '提示',
       content: '确定了吗？',
       success:(res)=> {
         if (res.confirm) {
           console.log('用户点击确定')
+          this.endCount()
           db.collection('gameRecord').add({
             data:{
               ans: e.currentTarget.dataset.id,
               gameId: 'p3-2-'+this.data.index,
-              userId:this.data.name
+              userId:this.data.name,
+              
             },             
           })
-          
           if (this.data.index < 5) {
             // 渲染下一题
             this.setData({
               index: this.data.index + 1,
               as:0,
-              num:8,
+              
               purl: this.data.p1[this.data.index]
             })
             this.countDown()
 
           } else {
             wx.redirectTo({
-              url: '../num3/num3',
+              url: '../../yd3/sp2/sp',
             })
           }
+          this.setNum()
+          this.countDown()
           console.log(this.data.index)
         } else if (res.cancel) {
           console.log('用户点击取消')

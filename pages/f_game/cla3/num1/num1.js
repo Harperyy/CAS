@@ -88,6 +88,14 @@ Page({
             if (res.confirm) {
               console.log('用户点击确定')
               console.log(this.data.index)
+              db.collection('gameRecord').add({
+                data:{
+                  ans: -1,
+                  gameId: 'p3-1-'+this.data.index,
+                  userId:this.data.name,
+                  time:60-this.data.num
+                },             
+              })
               if (this.data.index < 5) {
                 var url = this.data.pdata[this.data.index]
                 // 渲染下一题
@@ -99,7 +107,7 @@ Page({
               this.countDown()
               } else {
                 wx.redirectTo({
-                  url: '../num2/num2',
+                  url: '../../yd3/sp1/sp',
                 })
               }
               console.log(this.data.index)
@@ -125,7 +133,8 @@ Page({
             data:{
               ans: e.currentTarget.dataset.id,
               gameId: 'p3-1-'+this.data.index,
-              userId:this.data.name
+              userId:this.data.name,
+              time:60-this.data.num
             },             
           })
           if (this.data.index < 5) {
@@ -139,7 +148,7 @@ Page({
             this.countDown()
           } else {
             wx.redirectTo({
-              url: '../num2/num2',
+              url: '../../yd3/sp1/sp',
             })
           }
           console.log(this.data.index)

@@ -12,6 +12,8 @@ Page({
    */
   
   data: {
+    num:60,
+    timer:"",
     
     words:[
        "红色","蓝色", "黄色","绿色"
@@ -73,9 +75,120 @@ Page({
           purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gmlaay5x5uj30hm0za0w5.jpg"
         })
       }
+      this.setNum()
+      this.countDown()
     })
 
   },
+  setNum:function(e){
+    this.setData({
+      num:60,
+    })
+   },
+    //倒计时60秒  
+    countDown: function() {
+     var that = this,
+       num = that.data.num;
+    
+       that.data.timer= setTimeout(function(){
+       if(num>=0){
+       that.setData({
+         num :num-1
+       })
+       that.endNum()}
+     },1000)
+ 
+   },
+   endCount:function(){
+     var that = this;
+       //清除计时器  即清除setInter
+       clearInterval(that.data.timer)
+       console.log("clear")
+   },
+   endNum:function(){
+     var that = this,num = that.data.num,flag=that.data.flag;
+     console.log(num)
+     if(num==0){
+       wx.showModal({
+           title: '提示',
+           content: '看来这道题有点难，试试下一题吧',
+           showCancel:false,
+           confirmText:'下一题',
+           success:(res)=> {
+             if (res.confirm) {
+               console.log('用户点击确定')
+               console.log(this.data.index)
+               db.collection('gameRecord').add({
+                data:{
+                  ans: this.data.scEmptyBtns,
+                  gameId: 'p4-3-'+this.data.index,
+                  userId:this.data.name,
+                  time:60-this.data.num
+                },             
+              })
+              if(this.data.index<5){
+                if(this.data.index+1==2){
+                  this.setData({
+                    purl:'https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg',
+                    index:this.data.index+1,
+                    ifListen:0,
+                    
+                    words:[
+                      "黄色","粉色","紫色","黑色"
+                    ],
+                    src:"https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/3-2.mp3?sign=0f5a8d598e14ae41c07587961ddf28d5&t=1610462331"
+                  })
+                }
+                else if(this.data.index+1==3){
+                  this.setData({
+                    purl:'https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg',
+                    index:this.data.index+1,
+                    ifListen:0,
+                    words:[
+                      "黑色","褐色","蓝色","粉色","黄色"
+                    ],
+                    src:"https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/3-3.mp3?sign=38943539327d0fde245a19308e2560bc&t=1610462386"
+                  })
+                }
+                else if(this.data.index+1==4){
+                  purl:'https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg',
+                  this.setData({index:this.data.index+1,
+                    ifListen:0,
+                    
+                    words:[
+                      "黑色着","绿色着","蓝色着","粉色着","黄色着"
+                    ],
+                    src:"https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/3-4.mp3?sign=172d1d1e705a05df1cfa1cedd817a83d&t=1610462430"
+                  })
+                }
+                else if(this.data.index+1==5){
+                  this.setData({
+                    purl:'https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg',
+                    index:this.data.index+1,
+                    ifListen:0,
+                    
+                    words:[
+                      "紫色着","绿色着","不是紫色着", "不是绿色着"
+                    ],
+                    src:"https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/3-5.mp3?sign=e412baba01f27fccb6bd3018c0439739&t=1610462476"
+                  })
+                }
+              }
+              else{
+                wx.redirectTo({
+                  url: '../num3/gz/gz',
+                })
+              }
+               console.log(this.data.index)
+             } else if (res.cancel) {
+           console.log('用户点击取消')
+         }
+       }
+     })    
+     }else{
+       that.countDown()
+     }
+   },
   play:function(e){
     
     
@@ -100,7 +213,8 @@ Page({
             data:{
               ans: this.data.scEmptyBtns,
               gameId: 'p4-3-'+this.data.index,
-              userId:this.data.name
+              userId:this.data.name,
+              time:60-this.data.num
             },             
           })
           if(this.data.index<5){
@@ -156,6 +270,8 @@ Page({
               url: '../num3/gz/gz',
             })
           }
+        } else if (res.cancel) {
+          console.log('用户点击取消')
         }
       }
     })

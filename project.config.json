@@ -209,6 +209,24 @@
         {
           "name": "pages/f_game/cla1/num3/gz/gz",
           "pathName": "pages/f_game/cla1/num3/gz/gz",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/f_game/cla2/num1/num1",
+          "pathName": "pages/f_game/cla2/num1/num1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/f_game/cla4/num1/num1",
+          "pathName": "pages/f_game/cla4/num1/num1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/f_game/cla3/num2/num2",
+          "pathName": "pages/f_game/cla3/num2/num2",
           "scene": null
         }
       ]

@@ -26,7 +26,9 @@ Page({
       "鼠","脸", "牛","山","家"
     ],
     index:1,
-    ifListen:0
+    ifListen:0,
+    num:60,
+    timer:""
   },
 
   /**
@@ -56,9 +58,176 @@ Page({
       this.setData({
         ifListen:1
       })
+      this.setNum()
+      this.countDown()
+
     })
 
   },
+  setNum:function(e){
+    this.setData({
+      num:60,
+    })
+   },
+    //倒计时60秒  
+    countDown: function() {
+     var that = this,
+       num = that.data.num;
+    
+       that.data.timer= setTimeout(function(){
+       if(num>=0){
+       that.setData({
+         num :num-1
+       })
+       that.endNum()}
+     },1000)
+ 
+   },
+   endCount:function(){
+     var that = this;
+       //清除计时器  即清除setInter
+       clearInterval(that.data.timer)
+       console.log("clear")
+   },
+   endNum:function(){
+     var that = this,num = that.data.num,flag=that.data.flag;
+     console.log(num)
+     if(num==0){
+       wx.showModal({
+           title: '提示',
+           content: '看来这道题有点难，试试下一题吧',
+           showCancel:false,
+           confirmText:'下一题',
+           success:(res)=> {
+             if (res.confirm) {
+               console.log('用户点击确定')
+               console.log(this.data.index)
+               db.collection('gameRecord').add({
+                data:{
+                  ans: this.data.scEmptyBtns,
+                  gameId: 'p4-1-'+this.data.index,
+                  userId:this.data.name,
+                  time:60-this.data.num
+                },             
+              })
+              if(this.data.index<5){
+                
+                if(this.data.index+1==2){
+                  this.setData({
+                    purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
+                    index:this.data.index+1,
+                    ifListen:0,
+                    scEmptyBtns: [
+                      { text: "", index: 0 },
+                      { text: "", index: 1 },
+                      { text: "", index: 2 },
+                      { text: "", index: 3 },
+                      { text: "", index: 4 },
+                      { text: "", index: 5 },
+                      { text: "", index: 6 },
+                      // { text: "", index: 7 },
+                      // { text: "", index: 8 },
+                      // { text: "", index: 9 },
+                    ],
+                    words:[
+                      "猪", "水", "草","雷","脚", "床", "人" 
+                    ],
+                  })
+                }
+                else if(this.data.index+1==3){
+                  this.setData({
+                    purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
+                    index:this.data.index+1,
+                    ifListen:0,
+                    scEmptyBtns: [
+                      { text: "", index: 0 },
+                      { text: "", index: 1 },
+                      { text: "", index: 2 },
+                      { text: "", index: 3 },
+                      { text: "", index: 4 },
+                      { text: "", index: 5 },
+                      { text: "", index: 6 },
+                      // { text: "", index: 7 },
+                      // { text: "", index: 8 },
+                      // { text: "", index: 9 },
+                      // { text: "", index: 10 },
+                      // { text: "", index: 11}
+                    ],
+                    words:[
+                      "猴", "字", "爱","蓝","木", "海", "天"
+                    ],
+                  })
+                }
+                else if(this.data.index+1==4){
+                  this.setData({index:this.data.index+1,
+                    purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
+                    ifListen:0,
+                    scEmptyBtns: [
+                      { text: "", index: 0 },
+                      { text: "", index: 1 },
+                      { text: "", index: 2 },
+                      { text: "", index: 3 },
+                      { text: "", index: 4 },
+                      { text: "", index: 5 },
+                      { text: "", index: 6 },
+                      { text: "", index: 7 },
+                      // { text: "", index: 8 },
+                      // { text: "", index: 9 },
+                      // { text: "", index: 10 },
+                      // { text: "", index: 11 },
+                      // { text: "", index: 12 },
+                      // { text: "", index: 13 },
+                      
+            
+            
+                    ],
+                    words:[
+                      "饭", "月", "门","霜","读", "山", "牛", "鸭"//8
+                    ],
+                  })
+                }
+                else if(this.data.index+1==5){
+                  this.setData({
+                    purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
+                    index:this.data.index+1,
+                    ifListen:0,
+                    scEmptyBtns: [
+                      { text: "", index: 0 },
+                      { text: "", index: 1 },
+                      { text: "", index: 2 },
+                      { text: "", index: 3 },
+                      { text: "", index: 4 },
+                      { text: "", index: 5 },
+                      { text: "", index: 6 },
+                      { text: "", index: 7 },
+                      {text: "", index: 8 },
+                      // { text: "", index: 9 },
+                      // { text: "", index: 10 },
+                      // { text: "", index: 11 },
+                      // { text: "", index: 12 },
+                      // { text: "", index: 13 },
+                    ],
+                    words:[
+                      "海", "光", "猫","雨","合", "草", "鸟","书", "猴"//9
+                    ],
+                  })
+                }
+              }
+              else{
+                wx.redirectTo({
+                  url: '../../yd4/sp1/sp',
+                })
+              }
+               console.log(this.data.index)
+             } else if (res.cancel) {
+           console.log('用户点击取消')
+         }
+       }
+     })    
+     }else{
+       that.countDown()
+     }
+   },
   play:function(e){
     
     
@@ -144,11 +313,13 @@ Page({
       success:(res)=> {
         if (res.confirm) {
           console.log('用户点击确定')
+          this.endCount()
           db.collection('gameRecord').add({
             data:{
               ans: this.data.scEmptyBtns,
               gameId: 'p4-1-'+this.data.index,
-              userId:this.data.name
+              userId:this.data.name,
+              time:60-this.data.num
             },             
           })
           if(this.data.index<5){
