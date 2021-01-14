@@ -11,25 +11,46 @@
   position: fixed;
   background-size: 100% 100%;
 }
-.placeholder{margin:5px;padding:0 10px;text-align:center;height:300rpx;line-height:300rpx;color:var(--weui-FG-1);margin-top: 25rpx;}
+.placeholder5{
+  border-radius: 20rpx;
+  background-color: azure;
+  font-size: 60rpx;
+   font-weight: bolder;
+  margin:30px;padding:0 10px;text-align:center;height:100rpx;line-height:100rpx;color:rgb(9, 1, 17);margin-top: 25rpx;}
+.placeholder{
+  
+  margin:5px;padding:0 10px;text-align:center;height:100rpx;line-height:100rpx;color:var(--weui-FG-1);margin-top: 25rpx;
+}
 .placeholdertext{
-  margin:5px;padding:0 10px;height:120rpx;line-height:120rpx;color:var(--weui-FG-1);margin-top: 10rpx;flex-wrap: wrap;display: block;
+  margin:5px;padding:0 10px;height:320rpx;color:var(--weui-FG-1);margin-top: 10rpx;flex-wrap: wrap;display: block;
+  background-color: rgb(170, 170, 219);
+  border-radius: 30rpx;
+}
+.placeholdertext1{
+  margin:5px;padding:0 10px;height:220rpx;line-height:220rpx;color:var(--weui-FG-1);margin-top: 10rpx;flex-wrap: wrap;display: block;
+  background-color: rgb(170, 170, 219);
+  border-radius: 30rpx;
 }
 .text{
+  word-break:break-all;
+  margin-top:10rpx;
   width: 100%;
-  height: 120rpx;
-  font-size: 30rpx;
+  height: 100rpx;
+  font-size: 50rpx;
   font-weight: bold;
-  color: rgb(247, 240, 240);
-  /* background-color: darkblue; */
+  color: rgb(23, 2, 39);
+  /* background-color: rgb(170, 170, 219); */
   align-items: center;
+  
 }
 .listen{
   height: 450rpx;
   width: 100%;
   
   text-align: center;
-  font-size: 50rpx;
+  font-size: 70rpx;
+  font-weight: bolder;
+  color: #000;
 }
 .placeholder2{margin:5px;padding:0 10px;text-align:center;height:100rpx;line-height:100rpx;color:var(--weui-FG-1);margin-top: 25rpx;}
 .xx{

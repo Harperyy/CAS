@@ -10,7 +10,7 @@
 		</view>
 		<view class="weui-flex">
       <view class="weui-flex__item"><view class="placeholder">
-        <image src="{{spurl[0]}}"bindtap="toNext " data-id="1"></image>
+        <image src="{{spurl[0]}}"bindtap="toNext" data-id="1"></image>
       </view></view>
 			<view class="weui-flex__item"><view class="placeholder">
         <image src="{{spurl[1]}}"bindtap="toNext"  data-id="2"></image>

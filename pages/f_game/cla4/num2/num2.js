@@ -1,4 +1,5 @@
 // pages/f_game/cla4/num1/num1.js
+const app = getApp()
 const myaudio = wx.createInnerAudioContext({});
 wx.cloud.init({
   env: "yqq-3g0xquwqdd5bcff3",
@@ -13,6 +14,7 @@ Page({
    */
   
   data: {
+    score:0,
     scEmptyBtns: [
       { text: "", index: 0 },
       { text: "", index: 1 },
@@ -30,7 +32,19 @@ Page({
     timer:"",
     index:1,
     ifListen:0,
-    kg:['____','____','____','____','____','____','____','____','____','____','____','____','____']
+    kg:['____','____','____'],
+    ly:[
+      "https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/2-1.mp3?sign=112e18e336179cae30c69b9dff627cef&t=1610564659",
+      "https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/2-2.mp3?sign=36b75a105301c9630ea45bee17ad6dcf&t=1610564674",
+      "https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/2-3.mp3?sign=3bbc4efd968b5066d89c1d761afe7bf6&t=1610564692",
+      "https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/2-4.mp3?sign=d1eff19282e1d73c2a9d3ea088beb980&t=1610564706",
+      "https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/2-5.mp3?sign=f00347a591281131e0073f4c54fcf9ab&t=1610564719"
+    ],
+    ans1:["那些","是","绿色"],
+    ans2:["不是","黄色","蓝色","绿色","又让",],
+    ans3:["黄色","紫色","然后","蓝色","不是"],
+    ans4:["是","黑色","蓝色","现在","绿色","蓝色"],
+    ans5:["紫色","是","又","黑色","想","这些"]
   },
 
   /**
@@ -48,6 +62,7 @@ Page({
       }
     })
     this.setData({
+      score:0,
       purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
       src:"https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/1-1.mp3?sign=5a76ac8b6e0d6d25af951d2e67772474&t=1608973143"
 
@@ -59,7 +74,7 @@ Page({
       console.log('end')
       this.setData({
         ifListen:1,
-        purl:'cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p4/2-'+this.data.index+'k.jpg'
+        purl:"https://wx2.sinaimg.cn/mw690/0084gu26ly1gmmcet6tpkj30u01syhdt.jpg",
       })
       this.setNum()
       this.countDown()
@@ -106,7 +121,7 @@ Page({
                console.log(this.data.index)
                db.collection('gameRecord').add({
                 data:{
-                  ans:this.data.scEmptyBtns,
+                  ans:-1,
                   gameId: 'p4-2-'+this.data.index,
                   userId:this.data.name,
                   time:60-this.data.num
@@ -115,6 +130,7 @@ Page({
               if(this.data.index<5){
                 if(this.data.index+1==2){
                   this.setData({
+                    kg:['____','____','____','____','____'],
                     purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
                     index:this.data.index+1,
                     ifListen:0,
@@ -126,6 +142,7 @@ Page({
                 }
                 else if(this.data.index+1==3){
                   this.setData({
+                    kg:['____','____','____','____','____'],
                     purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
                     index:this.data.index+1,
                     ifListen:0,
@@ -135,10 +152,11 @@ Page({
                   })
                 }
                 else if(this.data.index+1==4){
-                  purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
+                  
                   this.setData({index:this.data.index+1,
                     ifListen:0,
-                    
+                    kg:['____','____','____','____','____','____'],
+                  purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
                     words:[
                       "黑色", "粉色", "是","不是","蓝色", "过去", "现在","绿色","蓝色"
                     ],
@@ -146,6 +164,7 @@ Page({
                 }
                 else if(this.data.index+1==5){
                   this.setData({
+                    kg:['____','____','____','____','____','____'],
                     purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
                     index:this.data.index+1,
                     ifListen:0,
@@ -157,6 +176,7 @@ Page({
                 }
               }
               else{
+                app.globalData.c4_num2= this.data.score
                 wx.redirectTo({
                   url: '../../yd4/sp2/sp',
                 })
@@ -177,6 +197,7 @@ Page({
 
     
     if(this.data.ifListen==0){
+      myaudio.src=this.data.ly[this.data.index-1]
       console.log(this.data.ifListen)
       myaudio.play()
 
@@ -263,9 +284,11 @@ Page({
       success:(res)=> {
         if (res.confirm) {
           console.log('用户点击确定')
+          this.endCount()
+          this.judge(this.data.kg)
           db.collection('gameRecord').add({
             data:{
-              ans:this.data.scEmptyBtns,
+              ans:-1,
               gameId: 'p4-2-'+this.data.index,
               userId:this.data.name,
               time:60-this.data.num
@@ -274,6 +297,7 @@ Page({
           if(this.data.index<5){
             if(this.data.index+1==2){
               this.setData({
+                kg:['____','____','____','____','____'],
                 purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
                 index:this.data.index+1,
                 ifListen:0,
@@ -285,6 +309,7 @@ Page({
             }
             else if(this.data.index+1==3){
               this.setData({
+                kg:['____','____','____','____','____'],
                 purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
                 index:this.data.index+1,
                 ifListen:0,
@@ -294,10 +319,11 @@ Page({
               })
             }
             else if(this.data.index+1==4){
-              purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
+              
               this.setData({index:this.data.index+1,
                 ifListen:0,
-                
+                kg:['____','____','____','____','____','____'],
+              purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
                 words:[
                   "黑色", "粉色", "是","不是","蓝色", "过去", "现在","绿色","蓝色"
                 ],
@@ -305,6 +331,7 @@ Page({
             }
             else if(this.data.index+1==5){
               this.setData({
+                kg:['____','____','____','____','____','____'],
                 purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
                 index:this.data.index+1,
                 ifListen:0,
@@ -316,8 +343,9 @@ Page({
             }
           }
           else{
+            app.globalData.c4_num2= this.data.score
             wx.redirectTo({
-              url: '../../yd4/sp3/sp',
+              url: '../../yd4/sp2/sp',
             })
           }
         }
@@ -326,7 +354,79 @@ Page({
     
     
   },
-  
+  judge:function(l){
+    if(this.data.index==1){
+      var cnt = 0
+      var i=0
+      var s = 30
+      for(;i<3;i++){
+        if(this.data.ans1[i]==l[i]) cnt++;
+
+      }
+      s = 30*cnt/3
+      this.setData({
+          score:this.data.score+s
+        })
+
+    }else if(this.data.index==2){
+      var cnt = 0
+      var i=0
+      var s = 80
+      for(;i<5;i++){
+        if(this.data.ans2[i]==l[i]) cnt++;
+
+      }
+      console.log(cnt)
+      s=15*cnt/5
+      this.setData({
+        score:this.data.score+s
+      })
+      
+    }
+    else if(this.data.index==3){
+      var cnt = 0
+      var i=0
+      var s = 80
+      for(;i<5;i++){
+        if(this.data.ans3[i]==l[i]) cnt++;
+
+      }
+      s=15*cnt/5
+      this.setData({
+        score:this.data.score+s
+      })
+      
+    }else if(this.data.index==4){
+      var cnt = 0
+      var i=0
+      var s = 80
+      for(;i<6;i++){
+        if(this.data.ans4[i]==l[i]) cnt++;
+
+      }
+      s=15*cnt/6
+      this.setData({
+        score:this.data.score+s
+      })
+      
+    }else if(this.data.index==5){
+      var cnt = 0
+      var i=0
+      var s = 80
+      for(;i<6;i++){
+        if(this.data.ans5[i]==l[i]) cnt++;
+
+      }
+      s=15*cnt/6
+      this.setData({
+        score:this.data.score+s
+      })
+      
+      
+    }
+    console.log("now:"+this.data.score)
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

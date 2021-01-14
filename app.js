@@ -8,10 +8,27 @@ App({
   userInfo: null,
   
   openid: null,
+  c1_num1:0,
+  c1_num2:0,
+  c1_num3:0,
+  c2_num1:0,
+  c2_num2:0,
+  c2_num3:0,
+  c3_num1:0,
+  c3_num2:0,
+  c3_num3:0,
+  c4_num1:0,
+  c4_num2:0,
+  c4_num3:0,
+
   
   },
   
   onLaunch: function () {
+    wx.cloud.init({
+      env:"yqq-3g0xquwqdd5bcff3",
+      traceUser:true
+    })
     var that = this;
   // 展示本地存储能力
   
@@ -46,7 +63,7 @@ App({
   success: res => {
   var openid = res.data.openid //返回openid
   
-  console.log('openid为' + openid);
+  // console.log('openid为' + openid);
   
   that.globalData.openid = openid
   
@@ -72,7 +89,7 @@ App({
   
   that.globalData.userInfo = res.userInfo
   
-  console.log(res);
+  // console.log(res);
   
   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
   

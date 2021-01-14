@@ -1,4 +1,5 @@
 // pages/f_game/cla4/num1/num1.js
+const app = getApp()
 const myaudio = wx.createInnerAudioContext({});
 wx.cloud.init({
   env: "yqq-3g0xquwqdd5bcff3",
@@ -12,6 +13,8 @@ Page({
    */
   
   data: {
+    socre:0,
+    
     num:60,
     timer:"",
     
@@ -19,7 +22,15 @@ Page({
        "红色","蓝色", "黄色","绿色"
     ],
     index:1,
-    ifListen:0
+    ifListen:0,
+    ly:[
+      "https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/3-1.mp3?sign=b708cb55a365af22e5583e21804bfa6a&t=1610564760",
+      "https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/3-2.mp3?sign=5fc6d05b32868e44789c923bef3ec6c1&t=1610564775",
+      "https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/3-3.mp3?sign=afbe4259fcdaeea7b73dc6eb6219ebfd&t=1610564788",
+      "https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/3-4.mp3?sign=3513a60b9927ef060c4f33013639652f&t=1610564802",
+      "https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/3-5.mp3?sign=9a68843f4b440c7b3850157a24bd62ae&t=1610564815"
+    ],
+    
   },
 
   /**
@@ -175,8 +186,10 @@ Page({
                 }
               }
               else{
+                app.globalData.c4_num3= this.data.score
+                console.log("num3:"+ app.globalData.c4_num3)
                 wx.redirectTo({
-                  url: '../num3/gz/gz',
+                  url: '../../yd4/sp3/sp',
                 })
               }
                console.log(this.data.index)
@@ -196,6 +209,7 @@ Page({
     
     if(this.data.ifListen==0){
       console.log(this.data.ifListen)
+      myaudio.src=this.data.ly[this.data.index-1]
       myaudio.play()
 
     }
@@ -209,6 +223,8 @@ Page({
       success:(res)=> {
         if (res.confirm) {
           console.log('用户点击确定')
+          this.endCount()
+          this.judge(e.currentTarget.dataset.w)
           db.collection('gameRecord').add({
             data:{
               ans: this.data.scEmptyBtns,
@@ -242,10 +258,10 @@ Page({
               })
             }
             else if(this.data.index+1==4){
-              purl:'https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg',
+             
               this.setData({index:this.data.index+1,
                 ifListen:0,
-                
+                 purl:'https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg',
                 words:[
                   "黑色着","绿色着","蓝色着","粉色着","黄色着"
                 ],
@@ -266,8 +282,10 @@ Page({
             }
           }
           else{
+            app.globalData.c4_num3= this.data.score
+            console.log("num3:"+ app.globalData.c4_num3)
             wx.redirectTo({
-              url: '../num3/gz/gz',
+              url: '../../yd4/sp3/sp',
             })
           }
         } else if (res.cancel) {
@@ -342,6 +360,46 @@ Page({
       scEmptyBtns: this.data.scEmptyBtns
     })
 
+  },
+  judge:function(id){
+    
+    if(this.data.index==1){
+      if(id=="绿色"){
+        console.log(id)
+        this.setData({
+          score:30
+        })
+      }
+    }
+    if(this.data.index==2){
+      if(id=="紫色"){
+        this.setData({
+          score:this.data.score+15
+        })
+      }
+    }
+    if(this.data.index==3){
+      if(id=="褐色"){
+        this.setData({
+          score:this.data.score+15
+        })
+      }
+    }
+    if(this.data.index==4){
+      if(id=="蓝色"){
+        this.setData({
+          score:this.data.score+15
+        })
+      }
+    }
+    if(this.data.index==5){
+      if(id=="不是绿色着"){
+        this.setData({
+          score:this.data.score+15
+        })
+      }
+    }
+    console.log("now:"+this.data.score)
   },
   
 

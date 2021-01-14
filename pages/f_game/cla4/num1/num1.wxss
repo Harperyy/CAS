@@ -11,7 +11,7 @@
   position: fixed;
   background-size: 100% 100%;
 }
-.placeholder{margin:5px;padding:0 10px;text-align:center;height:200rpx;line-height:200rpx;color:var(--weui-FG-1);margin-top: 25rpx;}
+.placeholder{margin:5px;padding:0 10px;text-align:center;height:400rpx;line-height:400rpx;color:var(--weui-FG-1);margin-top: 25rpx;}
 .listen{
   height: 450rpx;
   width: 100%;
@@ -20,9 +20,19 @@
   font-size: 50rpx;
 }
 .placeholder2{margin:5px;padding:0 10px;text-align:center;height:100rpx;line-height:100rpx;color:var(--weui-FG-1);margin-top: 25rpx;}
-.placeholder1{margin:5px;padding:0 10px;text-align:right;height:400rpx;line-height:400rpx;color:rgb(250, 248, 252);margin-top: 25rpx;display: flex;
+.placeholder1{margin:5px;padding:0 10px;text-align:right;height:180rpx;line-height:180rpx;color:rgb(18, 3, 34);margin-top: 25rpx;display: flex;
   padding-top: 10rpx;
   flex-wrap: wrap;
+  font-weight: bolder;
+  border-radius: 2rpx;
+  /* background-color: rgb(13, 6, 82); */
+}
+.placeholder4{margin:5px;padding:0 10px;text-align:right;height:400rpx;line-height:400rpx;color:rgb(13, 1, 26);margin-top: 25rpx;display: flex;
+  padding-top: 10rpx;
+  flex-wrap: wrap;
+  font-weight: bolder;
+  border-radius: 2rpx;
+  /* background-color: rgb(13, 6, 82); */
 }
 .placeholder11{margin:5px;padding:0 10px;text-align:right;height:750rpx;line-height:750rpx;color:rgb(250, 248, 252);margin-top: 25rpx;display: flex;
   padding-top: 10rpx;
@@ -48,8 +58,14 @@
   width: 200rpx;
   height: 100rpx;
   font-size: 50rpx;
-  color: rgb(13, 6, 82);
+  color: rgb(8, 3, 56);
   align-items: center;
   background-color: rgb(224, 203, 228);
   border-radius: 30px;
+}
+.listen{
+  background-color: rgb(137, 183, 243);
+  height: 180rpx;
+  border-radius: 20rpx;
+  width: 180rpx;
 }

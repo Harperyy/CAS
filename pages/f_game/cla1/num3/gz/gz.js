@@ -13,7 +13,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      purl:"cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/p1/gz2.jpg"
+      purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gmmabnlkl9j30ai0m8q3q.jpg"
     })
 
   },
@@ -25,7 +25,7 @@ Page({
         if (res.confirm) {
           console.log('用户点击确定')
           wx.navigateTo({
-            url: '../num2',
+            url: '../num3',
           })
         }
       }

@@ -1,4 +1,5 @@
 // pages/f_game/cla1/num2/num2.js
+const app = getApp()
 wx.cloud.init({
   env: "yqq-3g0xquwqdd5bcff3",
   traceUser: true
@@ -10,9 +11,15 @@ Page({
    * 页面的初始数据
    */
   data: {
+    score:0,
     timer:"",
     num:60,
-    index:1
+    index:1,
+    ans1:[0,0,0,0,1,0,0,0,0],
+    ans2:[0,0,0,0,0,1,0,0,0],
+    ans3:[0,0,0,0,1,0,0,0,0],
+    ans4:[0,0,0,1,0,0,0,0,0],
+    ans5:[0,0,0,0,1,0,0,0,0],
   },
 
   /**
@@ -81,7 +88,7 @@ Page({
             
           db.collection('gameRecord').add({
             data:{
-              ans: this.data.checkedItem,
+              ans: -1,
               gameId: 'p2-1-'+this.data.index,
               userId:this.data.name,
               time:60-this.data.num
@@ -128,9 +135,14 @@ Page({
             this.setNum()
             this.countDown()
             console.log(this.data.index)
-            } else if (res.cancel) {
+            } else{
+              app.globalData.c2_num1= this.data.score
+              wx.redirectTo({
+                url: '../../yd2/sp1/sp',
+              })
+            }
+             }else if (res.cancel) {
              console.log('用户点击取消')
-             }
             }
           }
   })
@@ -167,6 +179,7 @@ Page({
           console.log('用户点击确定')
           console.log(this.data.index)
           this.endCount()
+          this.judge( this.data.checkedItem)
           db.collection('gameRecord').add({
             data:{
               ans: this.data.checkedItem,
@@ -219,6 +232,7 @@ Page({
 
 
           }else{
+            app.globalData.c2_num1= this.data.score
             wx.redirectTo({
               url: '../../yd2/sp1/sp',
             })
@@ -226,6 +240,61 @@ Page({
         }
       }
     })
+  },
+  judge:function(l){
+    console.log("---"+l)
+    if(this.data.index==1){
+      if(l[4]==1){
+        if(this.data.num>=55) {
+          this.setData({
+            score:this.data.score+10
+          })
+        }
+        else{
+          this.setData({
+            score:this.data.score+5
+          })
+        }
+
+      }
+    }else if(this.data.index==2){
+      if(l[5]==1){
+        var s = 20
+        if(this.data.num<55) s-=(55-this.data.num)*5
+        this.setData({
+          score:this.data.score+s
+        })
+
+      }
+    }else if(this.data.index==3){
+      if(l[4]==1){
+        var s = 20
+        if(this.data.num<55) s-=(55-this.data.num)*5
+        this.setData({
+          score:this.data.score+s
+        })
+
+      }
+    }else if(this.data.index==4){
+      if(l[3]==1){
+        var s = 25
+        if(this.data.num<55) s-=(55-this.data.num)*3
+        this.setData({
+          score:this.data.score+s
+        })
+
+      }
+    }else if(this.data.index==5){
+      if(l[4]==1){
+        var s = 25
+        if(this.data.num<55) s-=(55-this.data.num)*3
+        this.setData({
+          score:this.data.score+s
+        })
+
+      }
+    }
+    console.log("now"+this.data.score)
   },
 
   /**

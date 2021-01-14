@@ -1,4 +1,5 @@
 // pages/f_game/cla3/num2/num2.js
+const app = getApp()
 wx.cloud.init({
   env: "yqq-3g0xquwqdd5bcff3",
   traceUser: true
@@ -10,6 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    score:0,
     index:1,
     num:10,
     as:0,
@@ -101,9 +103,10 @@ Page({
         if (res.confirm) {
           console.log('用户点击确定')
           this.endCount()
+          this.judge( e.currentTarget.dataset.id)
           db.collection('gameRecord').add({
             data:{
-              ans: e.currentTarget.dataset.id,
+              ans: -1,
               gameId: 'p3-2-'+this.data.index,
               userId:this.data.name,
               
@@ -120,6 +123,7 @@ Page({
             this.countDown()
 
           } else {
+            app.globalData.c3_num2= this.data.score
             wx.redirectTo({
               url: '../../yd3/sp2/sp',
             })
@@ -132,6 +136,54 @@ Page({
         }
       }
     })
+  },
+  judge:function(id){
+    if(this.data.index==1){
+      var s = 20
+      if(id!="否"){
+        s=0;
+      }
+      this.setData({
+        score:this.data.score+s
+      })
+    }
+    else if(this.data.index==2){
+      var s = 20
+      if(id!="否"){
+        s=0;
+      }
+      
+      this.setData({
+        score:this.data.score+s
+      })
+    }
+    else if(this.data.index==3){
+      var s = 20
+      if(id!="是"){
+        s=0;
+      }
+      this.setData({
+        score:this.data.score+s
+      })
+    }
+    else if(this.data.index==4){
+      var s = 15
+      if(id!="否"){
+        s=0;
+      }
+      this.setData({
+        score:this.data.score+s
+      })
+    }
+    else if(this.data.index==5){
+      var s = 15
+      if(id!="否"){
+        s=0;
+      }
+      this.setData({
+        score:this.data.score+s
+      })
+    }
   },
 
   /**

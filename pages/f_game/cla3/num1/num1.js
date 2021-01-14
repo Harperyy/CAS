@@ -1,4 +1,5 @@
 // pages/f_game/cla3/num1/num1.js
+const app = getApp()
 wx.cloud.init({
   env: "yqq-3g0xquwqdd5bcff3",
   traceUser: true,
@@ -12,6 +13,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    score:0,
     num: 60,
     index: 1,
     timer:"",
@@ -52,7 +54,7 @@ Page({
   },
   setNum:function(e){
    this.setData({
-     num:0,
+     num:60,
    })
   },
    //倒计时60秒  
@@ -106,6 +108,7 @@ Page({
               this.setNum()
               this.countDown()
               } else {
+                app.globalData.c3_num1= this.data.score
                 wx.redirectTo({
                   url: '../../yd3/sp1/sp',
                 })
@@ -129,6 +132,7 @@ Page({
           console.log('用户点击确定')
           this.endCount()
           console.log(this.data.index)
+          this.judge( e.currentTarget.dataset.id)
           db.collection('gameRecord').add({
             data:{
               ans: e.currentTarget.dataset.id,
@@ -147,6 +151,7 @@ Page({
             })
             this.countDown()
           } else {
+            app.globalData.c3_num1= this.data.score
             wx.redirectTo({
               url: '../../yd3/sp1/sp',
             })
@@ -157,6 +162,55 @@ Page({
         }
       }
     })
+  },
+  judge:function(id){
+    if(this.data.index==1){
+      var s = 10
+      if(id!=3){
+        s=0;
+      }
+      this.setData({
+        score:this.data.score+s
+      })
+    }
+    else if(this.data.index==2){
+      var s = 20
+      if(id!=1){
+        s=0;
+      }
+      
+      this.setData({
+        score:this.data.score+s
+      })
+    }
+    else if(this.data.index==3){
+      var s = 20
+      if(id!=3){
+        s=0;
+      }
+      this.setData({
+        score:this.data.score+s
+      })
+    }
+    else if(this.data.index==4){
+      var s = 20
+      if(id!=6){
+        s=0;
+      }
+      this.setData({
+        score:this.data.score+s
+      })
+    }
+    else if(this.data.index==5){
+      var s = 20
+      if(id!=2){
+        s=0;
+      }
+      this.setData({
+        score:this.data.score+s
+      })
+    }
+    console.log("new"+this.data.score)
   },
   
 

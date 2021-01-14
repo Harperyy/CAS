@@ -1,6 +1,6 @@
 <!--pages/f_game/yd1/yd1.wxml-->
 
-<image class="background" src="https://wx1.sinaimg.cn/mw690/0084gu26ly1gml92p3bdkj30fn0rsq47.jpg"></image>
+<image class="background" src="https://wx2.sinaimg.cn/mw690/0084gu26ly1gml920et04j30fn0rs102.jpg"></image>
 
 <view class="page" data-weui-theme="{{theme}}" >
 	
@@ -22,6 +22,7 @@
     
 	</view>
 </view>
+
   
   
 

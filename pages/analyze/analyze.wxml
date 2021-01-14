@@ -1,2 +1,29 @@
-<!--pages/analyze/analyze.wxml-->
-<text>pages/analyze/analyze.wxml</text>
+<!--pages/f_game/yd1/yd1.wxml-->
+
+<image class="background" src="https://wx4.sinaimg.cn/mw690/0080mSy2ly1gmmdndlakqj30dc0m876z.jpg"></image>
+
+<view class="page" data-weui-theme="{{theme}}" >
+	
+	<view class="page__bd page__bd_spacing">
+		
+		<view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder"></view></view>
+		</view>
+		<view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder1" bindtap="toNext">
+        >>>查看报告
+      </view></view>
+			<view class="weui-flex__item"><view class="placeholder1">
+       
+      </view></view>
+		
+    </view>
+   
+    
+	</view>
+</view>
+
+  
+  
+
+

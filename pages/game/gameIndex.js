@@ -27,7 +27,7 @@ Page({
   tokn: function(e){
     
     wx.navigateTo({
-      url: '../f_game/yd1/yd1'
+      url: '../m_game/yd1/yd1'
     })
   }
 })

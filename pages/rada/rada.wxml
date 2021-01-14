@@ -1,0 +1,92 @@
+<!--pages/rada/rada.wxml-->
+
+
+
+<!-- <image class="background" src="https://wx3.sinaimg.cn/mw690/0084gu26ly1gml94kp14yj30fn0rsgs3.jpg"></image> -->
+
+<view class="page" data-weui-theme="{{theme}}" >
+	
+	<view class="page__bd page__bd_spacing">
+		
+		<view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder">
+
+        <view class='radar-container'>
+       <canvas class='radarCanvas' canvas-id='radarCanvas' style='width:360px'></canvas>
+        </view>
+      </view></view>
+		</view>
+		<view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder1">
+       <!-- <text>1-1得分</text> -->   
+       <text>1-1得分：{{s11}}</text>
+      </view></view>
+    </view>   
+    <view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder1">
+       <!-- <text>1-1得分</text> -->   
+       <text>1-1得分：{{s12}}</text>
+      </view></view>
+    </view>   
+    <view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder1">
+       <!-- <text>1-1得分</text> -->   
+       <text>1-1得分：{{s13}}</text>
+      </view></view>
+    </view>   
+    <view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder1">
+       <!-- <text>1-1得分</text> -->   
+       <text>1-1得分：{{s21}}</text>
+      </view></view>
+    </view>   
+    <view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder1">
+       <!-- <text>1-1得分</text> -->   
+       <text>1-1得分：{{s22}}</text>
+      </view></view>
+    </view>   
+    <view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder1">
+       <!-- <text>1-1得分</text> -->   
+       <text>1-1得分：{{s23}}</text>
+      </view></view>
+    </view>   
+    <view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder1">
+       <!-- <text>1-1得分</text> -->   
+       <text>1-1得分：{{s31}}</text>
+      </view></view>
+    </view>   
+    <view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder1">
+       <!-- <text>1-1得分</text> -->   
+       <text>1-1得分：{{s32}}</text>
+      </view></view>
+    </view>   
+    <view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder1">
+       <!-- <text>1-1得分</text> -->   
+       <text>1-1得分：{{s33}}</text>
+      </view></view>
+    </view>   
+    <view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder1">
+       <!-- <text>1-1得分</text> -->   
+       <text>1-1得分：{{s41}}</text>
+      </view></view>
+    </view>   
+    <view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder1">
+       <!-- <text>1-1得分</text> -->   
+       <text>1-1得分：{{s42}}</text>
+      </view></view>
+    </view>   
+    <view class="weui-flex">
+      <view class="weui-flex__item"><view class="placeholder1">
+       <!-- <text>1-1得分</text> -->   
+       <text>1-1得分：{{s43}}</text>
+      </view></view>
+    </view>   
+	</view>
+</view>

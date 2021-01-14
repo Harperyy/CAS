@@ -1,4 +1,5 @@
 // pages/f_game/cla3/num3/num3.js
+const app = getApp()
 wx.cloud.init({
   env: "yqq-3g0xquwqdd5bcff3",
   traceUser: true
@@ -10,6 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    score:0,
     num: 60,
     index: 1,
     timer:"",
@@ -17,7 +19,7 @@ Page({
       "https://wx2.sinaimg.cn/mw690/0084gu26ly1gmipkavb7fj30fn0rsgop.jpg",
       "https://wx2.sinaimg.cn/mw690/0084gu26ly1gmipkext0oj30fn0rs0w6.jpg",
      "https://wx4.sinaimg.cn/mw690/0084gu26ly1gmipkjiu6xj30fn0rsmzy.jpg",
-      "https://wx2.sinaimg.cn/mw690/0084gu26ly1gmipkoxc3fj30fn0rsgnu.jpg",
+      "https://wx1.sinaimg.cn/mw690/0084gu26ly1gmmrzbu4l3j30fn0rsaca.jpg",
       
       
 
@@ -87,7 +89,7 @@ Page({
               console.log(this.data.index)
               db.collection('gameRecord').add({
                 data:{
-                  ans: e.currentTarget.dataset.id,
+                  ans: -1,
                   gameId: 'p3-3-'+this.data.index,
                   userId:this.data.name,
                   time:60-this.data.num
@@ -102,6 +104,7 @@ Page({
                 this.setNum()
                 this.countDown()
               } else {
+                app.globalData.c3_num3= this.data.score
                 wx.redirectTo({
                   url: '../../yd3/sp3/sp',
                 })
@@ -126,7 +129,7 @@ Page({
           console.log('用户点击确定')
           this.endCount()
           console.log(this.data.index)
-          if (this.data.index < 5) {
+          if (this.data.index < 4) {
             // 渲染下一题
             this.setData({
               num:60,
@@ -137,6 +140,7 @@ Page({
             this.setNum()
             this.countDown()
           } else {
+            app.globalData.c3_num3= this.data.score
             wx.redirectTo({
               url: '../../yd3/sp3/sp',
             })
@@ -147,6 +151,49 @@ Page({
         }
       }
     })
+  },
+  judge:function(id){
+    if(this.data.index==1){
+      var s = 25
+      if(id!=3){
+        s=0;
+      }
+      this.setData({
+        score:this.data.score+s
+      })
+    }
+    else if(this.data.index==2){
+      var s = 25
+      if(id!=1){
+        s=0;
+      }
+      if(this.data.num<50) s-=(50-this.data.num)*2
+      
+      this.setData({
+        score:this.data.score+s
+      })
+    }
+    else if(this.data.index==3){
+      var s = 25
+      if(id!=2){
+        s=0;
+      }
+      if(this.data.num<50) s-=(50-this.data.num)*2
+      this.setData({
+        score:this.data.score+s
+      })
+    }
+    else if(this.data.index==4){
+      var s = 25
+      if(id!=4){
+        s=0;
+      }
+      if(this.data.num<50) s-=(50-this.data.num)*2
+      this.setData({
+        score:this.data.score+s
+      })
+    }
+    
   },
   
 

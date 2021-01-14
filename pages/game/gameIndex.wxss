@@ -31,6 +31,7 @@
   height: 400rpx;
   padding: 20rpx;
   color: darkslategray;
+  font-weight: bolder;
 
 }
 

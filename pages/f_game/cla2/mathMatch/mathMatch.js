@@ -62,15 +62,7 @@ Page({
         var trueValue = this.data.questionList[this.data.shuffleIndex[this.data.index]]['true'];
 
         this.data.chooseValue[this.data.index] = trueValue;
-        if (answer == trueValue){
-          wx.showToast({
-            title: '回答正确',
-          })
-        }else{
-          wx.showToast({
-            title: '回答错误',
-          })
-        }
+       
        
       }
       this.setData({
@@ -181,8 +173,10 @@ Page({
       let wrongList = JSON.stringify(this.data.wrongList);
       let wrongListSort = JSON.stringify(this.data.wrongListSort);
       let chooseValue = JSON.stringify(this.data.chooseValue);
+       app.globalData.c3_num2= this.data.totalScore
       wx.redirectTo({
-        url: '../num1/num1',
+       
+        url: '../../yd2/sp2/sp',
       })
 
       // 设置缓存
@@ -195,20 +189,27 @@ Page({
   /*
   * 错题处理
   */
-  chooseError: function(){
-    var trueValue = this.data.questionList[this.data.shuffleIndex[this.data.index]]['true'];
-    var chooseVal = this.data.chooseValue[this.data.index];
-    console.log('选择了' + chooseVal + '答案是' + trueValue);
-    if (chooseVal.toString() != trueValue.toString()) {
-      console.log('错了');
-      this.data.wrong++;
-      this.data.wrongListSort.push(this.data.index);
-      this.data.wrongList.push(this.data.shuffleIndex[this.data.index]);
-      this.setData({
-        totalScore: this.data.totalScore - this.data.questionList[this.data.shuffleIndex[this.data.index]]['scores']  // 扣分操作
-      })
-    }
-  },
+   chooseError: function(){
+      let answer = ""
+          for (var i = 0; i < this.data.scEmptyBtns.length; i++) {
+            answer += this.data.scEmptyBtns[i].text
+          }
+          var trueValue = this.data.questionList[this.data.shuffleIndex[this.data.index]]['true'];
+  
+          this.data.chooseValue[this.data.index] = trueValue;
+        
+      console.log('选择了' + answer + '答案是' + trueValue);
+      console.log('成绩1 '+this.data.totalScore);
+      console.log('分 '+this.data.questionList[this.data.shuffleIndex[this.data.index]]['scores'] );
+  
+      if (answer != trueValue){
+        console.log('错了');
+        this.setData({
+          totalScore: this.data.totalScore - this.data.questionList[this.data.shuffleIndex[this.data.index]]['scores']  // 扣分操作
+        })
+        console.log('成绩2'+this.data.totalScore);
+      }
+    },
   /**
      * 生成一个从 start 到 end 的连续数组
      * @param start

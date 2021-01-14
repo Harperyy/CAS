@@ -29,7 +29,7 @@ Page({
     
     wx.redirectTo({
       
-      url: '../../yd3/yd1'
+      url: '../../yd4/yd1'
     })
   }
 })

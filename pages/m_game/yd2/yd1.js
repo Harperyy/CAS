@@ -29,7 +29,7 @@ Page({
     
     wx.redirectTo({
       
-      url: '../cla1/num1/gz/gz'
+      url: '../cla2/num1/num1'
     })
   }
 })

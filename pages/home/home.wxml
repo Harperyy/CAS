@@ -1,14 +1,22 @@
 <!--pages/home/home.wxml-->
-<view class="flex-box">
-    <image class="background" src="cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/bj2.jpg" style="opacity:{{0.7}}"></image>
-    <view class="flex-item item-last">
-      <view class="item bc_green" bindtap="toTestPage" style="opacity:{{0.9}}">
-        测试</view></view>
-    <view class="flex-item item-last">
-      <view class="item bc_red" bindtap="toPaihangbang" style="opacity:{{0.9}}">
-        排行榜
 
-      </view>
+<image class="background" src="cloud://yqq-3g0xquwqdd5bcff3.7971-yqq-3g0xquwqdd5bcff3-1303928640/bj2.jpg" style="opacity:{{0.7}}"></image>
+<view class="page" data-weui-theme="{{theme}}" >
+	
+	<view class="page__bd page__bd_spacing">
+		
+		<view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder"></view></view>
+		</view>
+		<view class="weui-flex">
+      
+      <view class="weui-flex__item"><view class="placeholder1" bindtap="toTestPage">
+        测试
+      </view></view>
+			
+		
     </view>
+   
     
-  </view>
+	</view>
+</view>

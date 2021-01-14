@@ -94,8 +94,9 @@ Page({
       let wrongList = JSON.stringify(this.data.wrongList);
       let wrongListSort = JSON.stringify(this.data.wrongListSort);
       let chooseValue = JSON.stringify(this.data.chooseValue);
+      app.globalData.c3_num3= this.data.totalScore
       wx.redirectTo({
-        url: '../mathMatch/mathMatch',
+        url: '../../yd2/sp3/sp',
       })
 
       // 设置缓存

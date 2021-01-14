@@ -15,7 +15,16 @@
 			
     </view>
     <view class="weui-flex">
-			<view class="weui-flex__item"><view class="placeholder1">
+			<view class="weui-flex__item"><view class="placeholder">
+        <!-- <view class="listen" bindtap="test"></view> -->
+        <audio src="{{src}}" id="myAudio" bindended="ended">
+
+        </audio>
+      </view></view>
+			
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder5">
         <view class="listen" bindtap="play">播放</view>
       </view></view>
 			

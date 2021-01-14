@@ -1,0 +1,38 @@
+<!--pages/test/test.wxml-->
+<view class="page backpicture">
+  <!--标题-->
+  <view class='page__hd'>
+    <view class="page__title">
+      <text class="txt_bold">{{index+1}}、{{questionList[shuffleIndex[index]].question1}}\n{{questionList[shuffleIndex[index]].question2}}  \n      {{questionList[shuffleIndex[index]].question3}}</text>
+     
+    </view>
+  </view>
+  <!--内容-->
+  
+<view class="containerx">
+   <view class="sc-empty-block">
+    <button class="sc-btn empty-btn" wx:for="{{scEmptyBtns}}" wx:item="item" wx:key="key" style="width:110rpx;height:66rpx;padding:11rpx">{{item.text}}</button>
+  </view>
+
+
+  <view class="sc-empty-block">
+    <button bindtap='handleClickWord' data-w="{{item}}" class="sc-btn" wx:for="{{words}}" wx:item="item" wx:key="key" style="width:110rpx;height:66rpx;padding:11rpx">{{item}}</button>
+  </view>
+  <view class="sc-empty-blockx">
+    <button bindtap='handleClickCancel' style="width:150rpx;height:66rpx;padding:11rpx">清零</button>
+  
+    <button bindtap='handleClickdel'  style="width:150rpx;height:66rpx;padding:11rpx">删除</button>
+  </view>
+
+</view>
+
+
+  <!--按钮-->
+  <view class='page_ft'>
+    <view class='mybutton'>
+      <button bindtap='nextSubmit' wx:if="{{index == 5}}">提交</button>
+      <button bindtap='nextSubmit' wx:else>下一题</button>
+     
+    </view>
+  </view>
+</view>

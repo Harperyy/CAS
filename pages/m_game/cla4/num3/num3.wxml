@@ -15,7 +15,16 @@
 			
     </view>
     <view class="weui-flex">
-			<view class="weui-flex__item"><view class="placeholder1">
+			<view class="weui-flex__item"><view class="placeholder">
+        <!-- <view class="listen" bindtap="test"></view> -->
+        <audio src="{{src}}" id="myAudio" bindended="ended">
+
+        </audio>
+      </view></view>
+			
+    </view>
+    <view class="weui-flex">
+			<view class="weui-flex__item"><view class="placeholder2">
         <view class="listen" bindtap="play">播放</view>
       </view></view>
 			
@@ -34,13 +43,13 @@
     </view>  
     <view class="weui-flex">
 			<view class="weui-flex__item"><view class="placeholdertext">
-        <view class="text" wx:if="{{index==1}}">蓝色不是什么？</view>  
+        <!-- <view class="text" wx:if="{{index==1}}">蓝色不是什么？</view>  
         <view class="text" wx:if="{{index==2}}">谁想绿色并且绿色着</view>
         <view class="text" wx:if="{{index==3}}">什么正绿色着？</view>
        
-        <view class="text" wx:if="{{index==4}}">紫色想黄色是什么样?</view>
+        <view class="text" wx:if="{{index==4}}">紫色想黄色是什么样?</view> -->
         <!-- <view class="text" wx:if="{{index==4}}"></view> -->
-        <view class="text" wx:if="{{index==5}}">黑色绿色着，粉色怎么样？</view>
+        <!-- <view class="text" wx:if="{{index==5}}">黑色绿色着，粉色怎么样？</view> -->
         <!-- <view class="text" wx:if="{{index==5}}"></view> -->
       </view></view>
     </view>
@@ -62,13 +71,13 @@
     </view>  
     <view class="weui-flex">
 			<view class="weui-flex__item"><view class="placeholdertext">
-        <view class="text" wx:if="{{index==1}}">蓝色不是什么？</view>  
+        <!-- <view class="text" wx:if="{{index==1}}">蓝色不是什么？</view>  
         <view class="text" wx:if="{{index==2}}">谁想绿色并且绿色着</view>
-        <view class="text" wx:if="{{index==3}}">什么正绿色着？</view>
+        <view class="text" wx:if="{{index==3}}">什么正绿色着？</view> -->
        
-        <view class="text" wx:if="{{index==4}}">紫色想黄色是什么样?</view>
+        <!-- <view class="text" wx:if="{{index==4}}">紫色想黄色是什么样?</view> -->
         <!-- <view class="text" wx:if="{{index==4}}"></view> -->
-        <view class="text" wx:if="{{index==5}}">黑色绿色着，粉色怎么样？</view>
+        <!-- <view class="text" wx:if="{{index==5}}">黑色绿色着，粉色怎么样？</view> -->
         <!-- <view class="text" wx:if="{{index==5}}"></view> -->
       </view></view>
     </view>

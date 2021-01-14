@@ -1,5 +1,6 @@
 {
   "description": "项目配置文件",
+  "cloudfunctionRoot": "cloud/",
   "packOptions": {
     "ignore": []
   },
@@ -227,6 +228,192 @@
         {
           "name": "pages/f_game/cla3/num2/num2",
           "pathName": "pages/f_game/cla3/num2/num2",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/f_game/cla1/num3/num3",
+          "pathName": "pages/f_game/cla1/num3/num3",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/f_game/yd1/sp3/sp",
+          "pathName": "pages/f_game/yd1/sp3/sp",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/f_game/yd4/yd1",
+          "pathName": "pages/f_game/yd4/yd1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/f_game/cla4/num2/gz/gz",
+          "pathName": "pages/f_game/cla4/num2/gz/gz",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/analyze/analyze",
+          "pathName": "pages/analyze/analyze",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/f_game/cla1/num2/gz/gz",
+          "pathName": "pages/f_game/cla1/num2/gz/gz",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/f_game/cla1/num3/num3",
+          "pathName": "pages/f_game/cla1/num3/num3",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/f_game/cla2/num1/num1",
+          "pathName": "pages/f_game/cla2/num1/num1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/f_game/cla4/num2/num2",
+          "pathName": "pages/f_game/cla4/num2/num2",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/r",
+          "pathName": "pages/rada/rada",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/m_game/cla1/num2/gz/gz",
+          "pathName": "pages/m_game/cla1/num2/gz/gz",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/m_game/yd2/yd1",
+          "pathName": "pages/m_game/yd2/yd1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/f_game/cla4/num3/num3",
+          "pathName": "pages/f_game/cla4/num3/num3",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/f_game/cla3/num1/num1",
+          "pathName": "pages/f_game/cla3/num1/num1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/m_game/cla1/num1/num1",
+          "pathName": "pages/m_game/cla1/num1/num1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/m_game/cla2/mathMatch/mathMatch",
+          "pathName": "pages/m_game/cla2/mathMatch/mathMatch",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/m_game/cla3/num2/num2",
+          "pathName": "pages/m_game/cla3/num2/num2",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/m_game/yd3/sp3/sp",
+          "pathName": "pages/m_game/yd3/sp3/sp",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/m_game/yd4/sp1/sp",
+          "pathName": "pages/m_game/yd4/sp1/sp",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/m_game/yd4/sp2/sp",
+          "pathName": "pages/m_game/yd4/sp2/sp",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/f_game/cla2/mathMatch/mathMatch",
+          "pathName": "pages/f_game/cla2/mathMatch/mathMatch",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/f_game/cla2/mathMatch/mathMatch",
+          "pathName": "pages/f_game/cla2/mathMatch/mathMatch",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/f_game/cla2/test/test",
+          "pathName": "pages/f_game/cla2/test/test",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/f_game/cla1/num1/num1",
+          "pathName": "pages/f_game/cla1/num1/num1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/f_game/cla1/num2/num2",
+          "pathName": "pages/f_game/cla1/num2/num2",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/f_game/cla1/num3/num3",
+          "pathName": "pages/f_game/cla1/num3/num3",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/m_game/cla1/num3/num3",
+          "pathName": "pages/m_game/cla1/num3/num3",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/f_game/cla2/num1/num1",
+          "pathName": "pages/f_game/cla2/num1/num1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/m_game/cla2/num1/num1",
+          "pathName": "pages/m_game/cla2/num1/num1",
           "scene": null
         }
       ]

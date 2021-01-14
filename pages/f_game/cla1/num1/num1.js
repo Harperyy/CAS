@@ -1,4 +1,5 @@
 // pages/f_game/cla1/num1/num1.js
+const app = getApp()
 wx.cloud.init({
   env: "yqq-3g0xquwqdd5bcff3",
   traceUser: true
@@ -10,6 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    score:0,
     num:60,
     timer:"",
 
@@ -35,7 +37,7 @@ Page({
     })
    
     this.setData({
-      
+      score:0,
       
       purl: "https://wx3.sinaimg.cn/mw690/0084gu26ly1gmiencucqmj30oo1hcgzq.jpg",
       spurl:[this.data.u+this.data.index+"-1.jpg",this.data.u+this.data.index+"-2.jpg"]
@@ -75,9 +77,9 @@ Page({
     if(num==0){
       wx.showModal({
           title: '提示',
-          content: '看来这道题有点难，试试下一题吧',
+          content: '看来这道题有点难，那就跳过吧',
           showCancel:false,
-          confirmText:'下一题',
+          confirmText:'确定',
           success:(res)=> {
             if (res.confirm) {
               console.log('用户点击确定')
@@ -117,6 +119,7 @@ Page({
                 this.setNum()
                 this.countDown()
               } else {
+                app.globalData.c1_num1= this.data.score
                 wx.redirectTo({
                   url: '../../yd1/sp1/sp',
                 })
@@ -141,6 +144,7 @@ Page({
           console.log('用户点击确定')
           this.endCount()
           console.log(this.data.index)
+          this.judge(e.currentTarget.dataset.id)
           db.collection('gameRecord').add({
             data:{
               ans: e.currentTarget.dataset.id,
@@ -176,6 +180,9 @@ Page({
             this.setNum()
             this.countDown()
           } else {
+            console.log('--------'+app.globalData.c1_num1)
+            app.globalData.c1_num1= this.data.score
+            console.log(app.globalData.c1_num1)
             wx.redirectTo({
               url: '../../yd1/sp1/sp',
             })
@@ -186,6 +193,65 @@ Page({
         }
       }
     })
+  },
+  judge:function(id){
+    if(this.data.index==1){
+      if(id==1){
+        
+        this.setData({score:this.data.score+10})  
+      }
+    }
+    else if(this.data.index==2){
+      if(id==3){
+        if(this.data.num>=5){
+          this.setData({score:this.data.score+20})  
+        }
+        else if(this.data.num>=50){
+          this.setData({score:this.data.score+15})  
+        }
+        else{
+          this.setData({score:this.data.score+10})  
+        }
+      }
+    }else if(this.data.index==3){
+      if(id==4){
+        if(this.data.num>=55){
+          this.setData({score:this.data.score+20})  
+        }
+        else if(this.data.num>=50){
+          this.setData({score:this.data.score+15})  
+        }
+        else{
+          this.setData({score:this.data.score+10})  
+        }
+      }
+    }else if(this.data.index==4){
+      if(id==3){
+        if(this.data.num>=55){
+          this.setData({score:this.data.score+25})  
+        }
+        else if(this.data.num>=50){
+          this.setData({score:this.data.score+15})  
+        }
+        else{
+          this.setData({score:this.data.score+10})  
+        }
+      }
+    }else if(this.data.index==5){
+      if(id==6){
+        if(this.data.num>=55){
+          this.setData({score:this.data.score+20})  
+        }
+        else if(this.data.num>=50){
+          this.setData({score:this.data.score+15})  
+        }
+        else{
+          this.setData({score:this.data.score+10})  
+        }
+      }
+    }
+    console.log("now"+this.data.score)
+
   },
   
 

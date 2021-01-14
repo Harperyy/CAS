@@ -11,13 +11,13 @@
   position: fixed;
   background-size: 100% 100%;
 }
-.placeholder{margin:5px;padding:0 10px;text-align:center;height:950rpx;line-height:950rpx;color:var(--weui-FG-1);margin-top: 25rpx;}
+.placeholder{margin:5px;padding:0 10px;text-align:center;height:1050rpx;line-height:1050rpx;color:var(--weui-FG-1);margin-top: 25rpx;}
 .placeholder image{
   width: 290rpx;
   height: 290rpx;
 }
 .placeholder2{margin:5px;padding:0 10px;text-align:center;height:60%;line-height:60%;color:var(--weui-FG-1);margin-top: 25rpx;opacity: 50%;}
-.placeholder1{margin:5px;padding:0 10px;text-align:center;height:130rpx;line-height:130rpx;color:rgb(246, 244, 248);margin-top: 25rpx;font-size: 50rpx;font-weight: 200;}
+.placeholder1{margin:5px;padding:0 10px;text-align:center;height:130rpx;line-height:130rpx;color:rgb(8, 1, 15);margin-top: 25rpx;font-size: 50rpx;font-weight: bolder;}
 .placeholder1 image{
   width: 130rpx;
   height: 130rpx;

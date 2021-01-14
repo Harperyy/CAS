@@ -19,10 +19,17 @@
   text-align: center;
   font-size: 50rpx;
 }
-.placeholder2{margin:5px;padding:0 10px;text-align:center;height:100rpx;line-height:100rpx;color:var(--weui-FG-1);margin-top: 25rpx;}
-.placeholder1{margin:5px;padding:0 10px;text-align:right;height:400rpx;line-height:400rpx;color:rgb(250, 248, 252);margin-top: 25rpx;display: flex;
+
+.placeholder2{
+  border-radius: 20rpx;
+  background-color: azure;
+  font-size: 60rpx;
+   font-weight: bolder;
+  margin:30px;padding:0 10px;text-align:center;height:100rpx;line-height:100rpx;color:rgb(9, 1, 17);margin-top: 25rpx;}
+.placeholder1{margin:5px;padding:0 10px;text-align:right;height:400rpx;line-height:400rpx;color:rgb(9, 1, 17);margin-top: 25rpx;display: flex;
   padding-top: 10rpx;
   flex-wrap: wrap;
+ 
 }
 .placeholder11{margin:5px;padding:0 10px;text-align:right;height:750rpx;line-height:750rpx;color:rgb(250, 248, 252);margin-top: 25rpx;display: flex;
   padding-top: 10rpx;

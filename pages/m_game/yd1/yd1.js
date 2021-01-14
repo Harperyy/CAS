@@ -25,7 +25,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  tocs1: function(e){
+  toNext: function(e){
     
     wx.redirectTo({
       

@@ -11,6 +11,7 @@
   position: fixed;
   background-size: 100% 100%;
 }
+
 .placeholder{margin:5px;padding:0 10px;text-align:center;height:950rpx;line-height:950rpx;color:var(--weui-FG-1);margin-top: 25rpx;}
 .placeholder image{
   width: 290rpx;

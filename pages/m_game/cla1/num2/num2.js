@@ -1,4 +1,5 @@
 // pages/f_game/cla1/num2/num2.js
+const app = getApp()
 wx.cloud.init({
   env: "yqq-3g0xquwqdd5bcff3",
   traceUser: true
@@ -11,7 +12,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    index:1
+    score:0,
+    index:1,
+    timer:"",
+    num:60,
+    an1:[0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
+    an2:[0,0,0,0,1,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1],
+    an3: [0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,0,0,0]
   },
 
   /**
@@ -37,7 +44,96 @@ Page({
       gz:0
 
     })
+    this.countDown()
 
+  },
+  setNum:function(e){
+    this.setData({
+      num:60,
+    })
+   },
+    //倒计时60秒  
+    countDown: function() {
+     var that = this,
+       num = that.data.num;
+    
+       that.data.timer= setTimeout(function(){
+       if(num>=0){
+       that.setData({
+         num :num-1
+       })
+       that.endNum()}
+     },1000)
+ 
+   },
+   endCount:function(){
+     var that = this;
+       //清除计时器  即清除setInter
+       clearInterval(that.data.timer)
+       console.log("clear")
+   },
+   endNum:function(){
+    var that = this,num = that.data.num;
+    console.log(num)
+    if(num==0){
+      wx.showModal({
+          title: '提示',
+          content: '看来这道题有点难，试试下一题吧',
+          showCancel:false,
+          confirmText:'下一题',
+          success:(res)=> {
+            if (res.confirm) {
+              console.log('用户点击确定')
+              console.log(this.data.index)
+              this.endCount()
+              db.collection('gameRecord').add({
+                data:{
+                  ans: -1,
+                  gameId: 'p1-1-'+this.data.index,
+                  userId:this.data.name,
+                  time:60-this.data.num
+                },             
+              })
+    
+              if (this.data.index < 3) {
+                // 渲染下一题
+                if(this.data.index+1==2){
+                  this.setData({
+                    purl:'https://wx1.sinaimg.cn/mw690/0084gu26ly1gmiel2muxhj30le1aajug.jpg',
+                    group:[2,9,5,3,4,8,1,7,6,0,3,6,9,4,7,8,5,0,1,2,3,5,7,1,6,9,8,0,2,4],
+                    checkedItem: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    index:this.data.index+1,
+                    
+    
+                  })
+                } else if(this.data.index+1==3){
+                  this.setData({
+                    purl:'https://wx1.sinaimg.cn/mw690/0084gu26ly1gmiel8lmpxj30le1aa0vt.jpg',
+                    group:[0,1,3,4,2,7,6,8,9,5,4,9,3,5,2,8,1,6,7,0,5,7,9,6,1,8,3,2,4,0,3,5,7,1,9,8,0,2,4,6,8,2,6,4,3,5,9,7,0,1],
+                    checkedItem: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                    index:this.data.index+1,
+                    
+    
+                  })
+                } 
+              console.log(this.data.index)
+            }else{
+              app.globalData.c1_num2= this.data.score
+              
+              wx.redirectTo({
+                url: '../../yd1/sp2/sp',
+              })
+            
+            }
+        }else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+    
+    }else{
+      that.countDown()
+    }
   },
   switch: function (e) {
     var classify = e.currentTarget.dataset.classify;
@@ -66,6 +162,8 @@ Page({
         if (res.confirm) {
           console.log('用户点击确定')
           console.log(this.data.index)
+          this.endCount()
+          this.judge(this.data.checkedItem)
           db.collection('gameRecord').add({
             data:{
               ans: this.data.checkedItem,
@@ -74,17 +172,8 @@ Page({
             },             
           })
 
-          if (this.data.index < 5) {
-            if(this.data.index+1==2){
-              this.setData({
-                purl:'https://wx1.sinaimg.cn/mw690/0084gu26ly1gmifcv08bdj30le1aa0vt.jpg',
-                group:[2,9,5,3,4,8,1,7,6,0,3,6,9,4,7,8,5,0,1,2,3,5,7,1,6,9,8,0,2,4],
-                checkedItem: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                index:this.data.index+1,
-                
-
-              })
-            }else if(this.data.index+1==3){
+          if (this.data.index < 3) {
+             if(this.data.index+1==2){
               this.setData({
                 purl:'https://wx1.sinaimg.cn/mw690/0084gu26ly1gmiel2muxhj30le1aajug.jpg',
                 group:[2,9,5,3,4,8,1,7,6,0,3,6,9,4,7,8,5,0,1,2,3,5,7,1,6,9,8,0,2,4],
@@ -93,18 +182,9 @@ Page({
                 
 
               })
-            }else if(this.data.index+1==4){
+            } else if(this.data.index+1==3){
               this.setData({
                 purl:'https://wx1.sinaimg.cn/mw690/0084gu26ly1gmiel8lmpxj30le1aa0vt.jpg',
-                group:[6,7,2,8,4,3,9,1,0,5,2,9,5,3,4,8,1,7,6,0,3,6,9,4,7,8,5,0,1,2,7,9,3,5,6,0,1,2,8,4,3,5,7,1,6,9,8,0,2,4],
-                checkedItem: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-                index:this.data.index+1,
-                
-
-              })
-            } else if(this.data.index+1==5){
-              this.setData({
-                purl:'https://wx4.sinaimg.cn/mw690/0084gu26ly1gmield9p4lj30lf1aadiv.jpg',
                 group:[0,1,3,4,2,7,6,8,9,5,4,9,3,5,2,8,1,6,7,0,5,7,9,6,1,8,3,2,4,0,3,5,7,1,9,8,0,2,4,6,8,2,6,4,3,5,9,7,0,1],
                 checkedItem: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 index:this.data.index+1,
@@ -116,13 +196,60 @@ Page({
 
 
           }else{
+            app.globalData.c1_num2= this.data.score
+            
             wx.redirectTo({
-              url: '../num3/gz/gz',
+              url:  '../../yd1/sp2/sp',
             })
           }
         }
       }
     })
+  },
+  judge:function(l){
+    if(this.data.index==1){
+      var cnt = 0
+      var i=0
+      var s = 15
+      for(;i<30;i++){
+        if(this.data.an1[i]==l[i]) cnt++;
+
+      }
+      if(this.data.num<48) s-=(48-this.data.num)/3
+      s-=(30-cnt)
+      this.setData({
+        score:s
+      })
+
+    }else if(this.data.index==2){
+      var cnt = 0
+      var i=0
+      var s = 35
+      for(;i<30;i++){
+        if(this.data.an2[i]==l[i]) cnt++;
+
+      }
+      if(this.data.num<50) s-=(50-this.data.num)/3*2
+      s-=(30-cnt)*5
+      this.setData({
+        score:this.data.score+s
+      })
+      
+    }else if(this.data.index==3){
+      var cnt = 0
+      var i=0
+      var s = 50
+      for(;i<50;i++){
+        if(this.data.an3[i]==l[i]) cnt++;
+
+      }
+      if(this.data.num<50) s-=(50-this.data.num)*2
+      s-=(50-cnt)*5
+      this.setData({
+        score:this.data.score+s
+      })
+    }
+
   },
 
   /**

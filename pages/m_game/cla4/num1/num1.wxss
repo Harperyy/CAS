@@ -11,6 +11,12 @@
   position: fixed;
   background-size: 100% 100%;
 }
+.placeholder5{
+  border-radius: 20rpx;
+  background-color: azure;
+  font-size: 60rpx;
+   font-weight: bolder;
+  margin:30px;padding:0 10px;text-align:center;height:100rpx;line-height:100rpx;color:rgb(9, 1, 17);margin-top: 25rpx;}
 .placeholder{margin:5px;padding:0 10px;text-align:center;height:200rpx;line-height:200rpx;color:var(--weui-FG-1);margin-top: 25rpx;}
 .listen{
   height: 450rpx;

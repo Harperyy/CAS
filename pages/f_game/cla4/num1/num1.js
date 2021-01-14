@@ -1,4 +1,5 @@
 // pages/f_game/cla4/num1/num1.js
+const app = getApp()
 const myaudio = wx.createInnerAudioContext({});
 wx.cloud.init({
   env: "yqq-3g0xquwqdd5bcff3",
@@ -12,15 +13,14 @@ Page({
    */
   
   data: {
+    score:0,
     scEmptyBtns: [
       { text: "", index: 0 },
       { text: "", index: 1 },
       { text: "", index: 2 },
       { text: "", index: 3 },
       { text: "", index: 4 },
-      { text: "", index: 5 },
-      { text: "", index: 6 },
-      { text: "", index: 7 },
+      
     ],
     words:[
       "鼠","脸", "牛","山","家"
@@ -28,7 +28,21 @@ Page({
     index:1,
     ifListen:0,
     num:60,
-    timer:""
+    timer:"",
+    ly:[
+      "https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/1-1.mp3?sign=097b85d5b01e736760538eeec6a03f24&t=1610541202",
+      "https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/1-2.mp3?sign=358c37e33f8641d1184f70c2050e51b7&t=1610541218",
+      "https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/1-3.mp3?sign=f181b4e40ec353b08346397bade2b4da&t=1610541234",
+      "https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/1-4.mp3?sign=bf5cd4d13cde3148678552452384ad6a&t=1610541252",
+      "https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/1-5.mp3?sign=06ff05d05e6bf5cd8a36335a19523635&t=1610541263"
+    ],
+    ans1:["山","脸", "牛","家","鼠"],
+    ans2:["草","脚", "猪", "雷","水", "人","床" ],
+    ans3:["字", "天","木","蓝", "爱", "海","猴"],
+    
+    ans4:["牛","月","饭","读","鸭",,"霜","门", "山"],
+    
+    ans5:["雨","猴","海", "草","猫","光","鸟","河","书"]
   },
 
   /**
@@ -47,7 +61,8 @@ Page({
     })
     this.setData({
       purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
-      src:"https://7971-yqq-3g0xquwqdd5bcff3-1303928640.tcb.qcloud.la/p4/1-1.mp3?sign=5a76ac8b6e0d6d25af951d2e67772474&t=1608973143"
+      src:this.data.ly[0],
+      score:0
 
       
 
@@ -56,7 +71,9 @@ Page({
     myaudio.onEnded((res) => {
       console.log('end')
       this.setData({
-        ifListen:1
+        ifListen:1,
+        purl:"https://wx2.sinaimg.cn/mw690/0084gu26ly1gmmcet6tpkj30u01syhdt.jpg",
+        
       })
       this.setNum()
       this.countDown()
@@ -114,6 +131,7 @@ Page({
                 
                 if(this.data.index+1==2){
                   this.setData({
+                    src:this.data.ly[1],
                     purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
                     index:this.data.index+1,
                     ifListen:0,
@@ -136,6 +154,7 @@ Page({
                 }
                 else if(this.data.index+1==3){
                   this.setData({
+                    src:this.data.ly[2],
                     purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
                     index:this.data.index+1,
                     ifListen:0,
@@ -160,6 +179,7 @@ Page({
                 }
                 else if(this.data.index+1==4){
                   this.setData({index:this.data.index+1,
+                    src:this.data.ly[3],
                     purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
                     ifListen:0,
                     scEmptyBtns: [
@@ -190,6 +210,7 @@ Page({
                   this.setData({
                     purl:"https://wx4.sinaimg.cn/mw690/0084gu26ly1gml89rzqjxj30hm0zagxp.jpg",
                     index:this.data.index+1,
+                    src:this.data.ly[4],
                     ifListen:0,
                     scEmptyBtns: [
                       { text: "", index: 0 },
@@ -208,12 +229,13 @@ Page({
                       // { text: "", index: 13 },
                     ],
                     words:[
-                      "海", "光", "猫","雨","合", "草", "鸟","书", "猴"//9
+                      "海", "光", "猫","雨","河", "草", "鸟","书", "猴"//9
                     ],
                   })
                 }
               }
               else{
+                app.globalData.c4_num1= this.data.score
                 wx.redirectTo({
                   url: '../../yd4/sp1/sp',
                 })
@@ -235,6 +257,7 @@ Page({
     
     if(this.data.ifListen==0){
       console.log(this.data.ifListen)
+      myaudio.src=this.data.ly[this.data.index-1]
       myaudio.play()
 
     }
@@ -314,6 +337,7 @@ Page({
         if (res.confirm) {
           console.log('用户点击确定')
           this.endCount()
+          this.judge(this.data.scEmptyBtns)
           db.collection('gameRecord').add({
             data:{
               ans: this.data.scEmptyBtns,
@@ -426,8 +450,9 @@ Page({
             }
           }
           else{
+            app.globalData.c4_num1= this.data.score
             wx.redirectTo({
-              url: '../num2/gz/gz',
+              url: '../../yd4/sp1/sp',
             })
           }
         }
@@ -435,6 +460,79 @@ Page({
     })
     
     
+  },
+  judge:function(l){
+    console.log(l)
+    if(this.data.index==1){
+      var cnt = 0
+      var i=0
+      var s = 10
+      for(;i<5;i++){
+        if(this.data.ans1[i]==l[i].text) cnt++;
+
+      }
+      s = 10*cnt/5
+      console.log("cnt"+cnt)
+      this.setData({
+          score:this.data.score+s
+        })
+
+    }else if(this.data.index==2){
+      var cnt = 0
+      var i=0
+      var s = 80
+      for(;i<7;i++){
+        if(this.data.ans2[i]==l[i].text) cnt++;
+
+      }
+      console.log(cnt)
+      s=20*cnt/7
+      this.setData({
+        score:this.data.score+s
+      })
+      
+    }
+    else if(this.data.index==3){
+      var cnt = 0
+      var i=0
+      var s = 80
+      for(;i<7;i++){
+        if(this.data.ans3[i]==l[i].text) cnt++;
+
+      }
+      s=20*cnt/7
+      this.setData({
+        score:this.data.score+s
+      })
+      
+    }else if(this.data.index==4){
+      var cnt = 0
+      var i=0
+      var s = 80
+      for(;i<8;i++){
+        if(this.data.ans4[i]==l[i].text) cnt++;
+
+      }
+      s=25*cnt/8
+      this.setData({
+        score:this.data.score+s
+      })
+      
+    }else if(this.data.index==5){
+      var cnt = 0
+      var i=0
+      var s = 80
+      for(;i<9;i++){
+        if(this.data.ans5[i]==l[i].text) cnt++;
+
+      }
+      s=25*cnt/9
+      this.setData({
+        score:this.data.score+s
+      })
+      
+    }
+    console.log("now"+this.data.score)
   },
   
 

@@ -1,6 +1,6 @@
 <!--pages/f_game/yd1/yd1.wxml-->
 
-<image class="background" src="https://wx1.sinaimg.cn/mw690/0084gu26ly1gml945sit7j30fn0rswl8.jpg"></image>
+<image class="background" src="https://wx3.sinaimg.cn/mw690/0084gu26ly1gml94kp14yj30fn0rsgs3.jpg"></image>
 
 <view class="page" data-weui-theme="{{theme}}" >
 	

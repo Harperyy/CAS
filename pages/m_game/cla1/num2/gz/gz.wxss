@@ -17,7 +17,7 @@
   height: 290rpx;
 }
 .placeholder2{margin:5px;padding:0 10px;text-align:center;height:60%;line-height:60%;color:var(--weui-FG-1);margin-top: 25rpx;opacity: 50%;}
-.placeholder1{margin:5px;padding:0 10px;text-align:center;height:130rpx;line-height:130rpx;color:rgb(246, 244, 248);margin-top: 25rpx;font-size: 50rpx;font-weight: 200;}
+.placeholder1{margin:5px;padding:0 10px;text-align:center;height:130rpx;line-height:130rpx;color:rgb(247, 115, 8);margin-top: 25rpx;font-size: 50rpx;font-weight: bolder;}
 .placeholder1 image{
   width: 130rpx;
   height: 130rpx;
